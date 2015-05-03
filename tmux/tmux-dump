@@ -1,0 +1,4 @@
+#!/bin/sh
+
+tmux -L unconfigured -f /dev/null start-server \; list-keys \; show-options -s \; show-options -g \; show-options -gw 
+
