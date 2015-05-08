@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# this is a command to start tmux for ubuntu 12.04
+
+tmux attach -t main || tmux new -s main
+
