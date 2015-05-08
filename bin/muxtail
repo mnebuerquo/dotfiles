@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# start tmux window/session
+
+# for each log, create pane
+
+set -e
+
+WINDOW_NAME="muxtail"
+
+if [ ! -z "$TMUX" ] || [ ! -z "$TMUX_PANE" ]; then
+    echo "Already inside a tmux session"
+else
+	tmux new-session -A -s main
+fi
+
+COMMAND=logtail
+
+# start new window with first ssh command
+LOG=$1
+TERM="TERM=screen"
+tmux new-window -k -n "$WINDOW_NAME" "$TERM $COMMAND $LOG"
+shift 1
+
+# now do the individual panes with the rest of the ssh commands
+for LOG in $*; do
+	tmux split-window -h "$TERM $COMMAND $LOG"
+done
+
+# make the layout readable
+tmux select-layout tiled
+
+tmux setw synchronize-panes
+tmux set-window-option status-bg red
+

@@ -19,6 +19,7 @@ for path in ./bin/* ; do
 	if [ -e "${path}" ] && [ -f "${path}" ]; then
 		file="$(basename "${path}")"
 		#TODO: backup file if not a symlink before removing
+		chmod +x "$(pwd)/bin/${file}"
 		rm "$HOME/bin/${file}"
 		ln -s "$(pwd)/bin/${file}" "$HOME/bin/${file}"
 	fi

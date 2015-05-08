@@ -1,5 +1,6 @@
 #!/bin/sh
 
 clear
+echo $1
 tail -n 1 -f $1
 
