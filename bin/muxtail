@@ -23,12 +23,20 @@ tmux new-window -k -n "$WINDOW_NAME" "$TERM $COMMAND $LOG"
 shift 1
 
 # now do the individual panes with the rest of the ssh commands
+COUNT=0
 for LOG in $*; do
-	tmux split-window -h "$TERM $COMMAND $LOG"
+	tmux split-window -v "$TERM $COMMAND $LOG"
+	COUNT=$COUNT+1
 done
 
 # make the layout readable
-tmux select-layout tiled
+if [ "$COUNT" -gt "3" ]; then
+	echo "Tiled layout for 4 or more panes"
+	tmux select-layout tiled
+else
+	echo "Vertical layout for < 4 panes"
+	tmux select-layout even-horizontal
+fi
 
 tmux setw synchronize-panes
 tmux set-window-option status-bg red
