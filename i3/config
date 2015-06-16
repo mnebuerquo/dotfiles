@@ -29,7 +29,10 @@ font pango:DejaVu Sans Mono 8
 
 # Capslock is now control
 # exec setxkbmap -option ctrl:nocaps
-exec_always xmodmap ~/.xmodmap
+exec_always xmodmap ~/.i3/xmodmap
+
+# Trying to bind capslock to trigger the remapping if it isn't set
+bindsym Caps_Lock xmodmap ~/.i3/xmodmap
 
 # Set up monitors using xrandr
 exec --no-startup-id ~/bin/monitorsetup.sh 
@@ -195,31 +198,39 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "monitor" {
-        # These bindings trigger as soon as you enter the monitor mode
-
 		# scan for monitors
-        bindsym s exec --no-startup-id ~/bin/monitorsetup.sh 
+        bindsym $mod+s exec --no-startup-id ~/bin/monitorsetup.sh 
+
+		# arrange workspaces so all are on visible monitors
+		bindsym $mod+a exec --no-startup-id ~/bin/i3-move-workspaces
 
 		# set wallpaper
-		bindsym w exec feh --bg-scale ~/images/wallpaper
-
-		# move current workspace between monitors
-		bindsym 1 move workspace 1 to output 1
-		bindsym 2 move workspace 2 to output left
-		bindsym 3 move workspace 3 to output left
-		bindsym 4 move workspace 4 to output left
-		bindsym 5 move workspace 5 to output left
-		bindsym 6 move workspace 6 to output left
-		bindsym 7 move workspace 7 to output left
-		bindsym 8 move workspace 8 to output left
-		bindsym 9 move workspace 9 to output left
-		bindsym 0 move workspace 10 to output left
+		bindsym $mod+w exec feh --bg-scale ~/images/wallpaper
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 bindsym $mod+m mode "monitor"
+
+mode "zipscene" {
+		# These are all urls, shortcuts in browser
+		bindsym $mod+g workspace 3; exec google-chrome https://git.zipscene.com ; mode "default"
+		bindsym $mod+m workspace 3; exec google-chrome https://mail.google.com ; mode "default"
+		bindsym $mod+j workspace 3; exec google-chrome https://issues.zipscene.com ; mode "default"
+		bindsym $mod+b workspace 3; exec google-chrome https://zipscene.app.box.com/login ; mode "default"
+		bindsym $mod+z workspace 3; exec google-chrome http://zsapi.zipscene.com/rt ; mode "default"
+		bindsym $mod+q workspace 3; exec google-chrome http://zsapi.qa.zipscene.com/rt ; mode "default"
+		bindsym $mod+d workspace 3; exec google-chrome http://deploy.zmp2.com/ ; mode "default"
+		bindsym $mod+a workspace 3; exec google-chrome https://zipscene.signin.aws.amazon.com/console ; mode "default"
+
+		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+z mode "zipscene"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
