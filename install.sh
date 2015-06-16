@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# add i3 settings
+for path in ./i3/* ; do
+	echo "{$path}"
+	file="$(basename "${path}")"
+	ln -s -f "$(pwd)/i3/${file}" "$HOME/.i3/${file}"
+done
+
 # install tmux.conf
 echo "Installing ~/.tmux.conf..."
 if [ -L ~/.tmux.conf ] ; then
@@ -20,8 +27,7 @@ for path in ./bin/* ; do
 		file="$(basename "${path}")"
 		#TODO: backup file if not a symlink before removing
 		chmod +x "$(pwd)/bin/${file}"
-		rm "$HOME/bin/${file}"
-		ln -s "$(pwd)/bin/${file}" "$HOME/bin/${file}"
+		ln -s -f "$(pwd)/bin/${file}" "$HOME/bin/${file}"
 	fi
 done
 echo "Installed ~/bin"
