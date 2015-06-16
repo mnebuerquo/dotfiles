@@ -32,10 +32,10 @@ font pango:DejaVu Sans Mono 8
 exec_always xmodmap ~/.i3/xmodmap
 
 # Trying to bind capslock to trigger the remapping if it isn't set
-bindsym Caps_Lock xmodmap ~/.i3/xmodmap
+bindsym Caps_Lock exec xmodmap ~/.i3/xmodmap
 
 # Set up monitors using xrandr
-exec --no-startup-id ~/bin/monitorsetup.sh 
+exec --no-startup-id ~/bin/monitorsetup.sh right
 
 # Ensure the background is set
 exec feh --bg-scale ~/images/wallpaper
@@ -199,13 +199,14 @@ bindsym $mod+r mode "resize"
 
 mode "monitor" {
 		# scan for monitors
-        bindsym $mod+s exec --no-startup-id ~/bin/monitorsetup.sh 
+        bindsym $mod+r exec --no-startup-id ~/bin/monitorsetup.sh right ; mode "default"
+        bindsym $mod+l exec --no-startup-id ~/bin/monitorsetup.sh left ; mode "default"
 
 		# arrange workspaces so all are on visible monitors
-		bindsym $mod+a exec --no-startup-id ~/bin/i3-move-workspaces
+		bindsym $mod+a exec --no-startup-id ~/bin/i3-move-workspaces ; mode "default"
 
 		# set wallpaper
-		bindsym $mod+w exec feh --bg-scale ~/images/wallpaper
+		bindsym $mod+w exec feh --bg-scale ~/images/wallpaper ; mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
