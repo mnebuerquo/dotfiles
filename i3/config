@@ -227,6 +227,9 @@ mode "zipscene" {
 
 		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
 
+		bindsym $mod+v exec nmcli con up id Zipscene-VPN ; mode "default"
+		bindsym $mod+Shift+v exec nmcli con down id Zipscene-VPN ; mode "default"
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
