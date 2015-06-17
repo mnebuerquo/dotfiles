@@ -32,7 +32,7 @@ font pango:DejaVu Sans Mono 8
 exec_always xmodmap ~/.i3/xmodmap
 
 # Trying to bind capslock to trigger the remapping if it isn't set
-bindsym Caps_Lock exec xmodmap ~/.i3/xmodmap
+bindsym Caps_Lock exec xmodmap ~/.i3/xmodmap ; exec ~/bin/CAPSLOCKOFF
 
 # Set up monitors using xrandr
 exec --no-startup-id ~/bin/monitorsetup.sh right
