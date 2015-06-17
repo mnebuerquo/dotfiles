@@ -1,0 +1,136 @@
+" Sherman's .vimrc
+"
+" Individual bundles were not being added to my runtimepath
+set runtimepath+=~/.vim/bundle/*/
+
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+if has('vim_starting')
+  if &compatible
+    set nocompatible		   " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+NeoBundleFetch 'https://github.com/kien/ctrlp.vim'
+NeoBundleFetch 'https://github.com/rking/ag.vim'
+NeoBundleFetch 'https://github.com/tpope/vim-fugitive'
+NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
+NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
+NeoBundleFetch 'https://github.com/christoomey/vim-tmux-navigator'
+NeoBundleFetch 'https://github.com/scrooloose/nerdtree'
+NeoBundleFetch 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+NeoBundleFetch 'https://github.com/airblade/vim-gitgutter'
+NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
+" NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+" I like my tabs to be 4 spaces wide
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = 'ag %s -i 
+	\ --nocolor 
+	\ --nogroup 
+	\ --hidden
+	\ --ignore .git
+	\ --ignore node_modules
+	\ --ignore .svn
+	\ --ignore .hg
+	\ --ignore .DS_Store
+	\ --ignore "**/*.pyc"
+	\ --ignore "**/*.min.js"
+	\ --ignore "**/*.lesscache"
+	\ -g ""'
+
+let g:agprg='ag 
+	\ --column 
+	\ --noheading
+	\ --nocolor 
+	\ --nogroup 
+	\ --hidden
+	\ --ignore .git
+	\ --ignore node_modules
+	\ --ignore .svn
+	\ --ignore .hg
+	\ --ignore .DS_Store
+	\ --ignore "**/*.pyc"
+	\ --ignore "**/*.min.js"
+	\ --ignore "**/*.lesscache"
+	\ '
+
+" Git Blame from Fugitive
+map <c-b> :Gblame<CR>
+
+" Git Gutter
+" let g:gitgutter_highlight_lines = 1
+
+" I want to use my system clipboard
+set clipboard=unnamedplus
+
+" Tree view file browser
+"map <c-n> :Explore<CR>
+"let g:netrw_banner       = 0
+"let g:netrw_liststyle    = 3
+"let g:netrw_sort_options = 'i'
+
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Show line numbers
+set number
+:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+
+" Set color scheme!
+"colorscheme base16-isotope
+
+" Allow using mouse (Don't tell Andrew or Rob)
+set mouse=a
+
+" Reload vim config
+map <C-R> :so $MYVIMRC<CR>
+
+" CSV File plugin to auto-format columns for editing
+let g:csv_autocmd_arrange      = 1
+let g:csv_autocmd_arrange_size = 1024*1024
+
+" Colors for parens are same as cursor
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
+" Show statusline always
+set laststatus=2
+set statusline=%n:%F " buffer number: full path to file
+set statusline+=\ %m%r " modified or read only
+set statusline+=%= " align right 
+set statusline+=%4l\ /%4L " row / length
+set statusline+=\ \|%3c " column
+set statusline+=\ \ \| " ending spaces to keep column off end of line
+

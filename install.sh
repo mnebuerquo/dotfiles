@@ -11,9 +11,18 @@ done
 echo "Installed ~/.i3/"
 echo 
 
+# install vim settings
+echo "Installing ~/.vimrc and neoBundle"
+mkdir -p "$HOME/.vim"
+ln -s -f "$(pwd)/vim/vimrc" "$HOME/.vimrc"
+curl -s -S -f https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+echo "neoBundle will install other plugins next time you run vim."
+echo "Installed vim files!"
+echo
+
 # install tmux.conf
 echo "Installing ~/.tmux.conf..."
-ln -s -f $(pwd)/tmux/tmux.conf "$HOME/.tmux.conf"
+ln -s -f "$(pwd)/tmux/tmux.conf" "$HOME/.tmux.conf"
 echo "~/.tmux.conf"
 echo 
 
