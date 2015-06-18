@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# find out which process currently owns a given port
+
+# http://superuser.com/a/42849
+lsof -i tcp:$1
+
