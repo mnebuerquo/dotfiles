@@ -1,0 +1,8 @@
+#!/bin/bash
+
+COLOR=$(openssl rand -hex 3)
+if [[ $1 =~ ^[0-9a-fA-F]{6}$ ]] ; then
+	COLOR=$1
+fi
+i3lock -c $COLOR
+

@@ -29,31 +29,31 @@ font pango:DejaVu Sans Mono 8
 
 # Capslock is now control
 # exec setxkbmap -option ctrl:nocaps
-exec_always xmodmap ~/.i3/xmodmap
+exec_always --no-startup-id xmodmap ~/.i3/xmodmap
 
 # Trying to bind capslock to trigger the remapping if it isn't set
 bindsym Caps_Lock exec xmodmap ~/.i3/xmodmap ; exec ~/bin/CAPSLOCKOFF
 
 # Set up monitors using xrandr
-exec --no-startup-id ~/bin/monitorsetup.sh right
+# exec --no-startup-id ~/bin/monitorsetup.sh right
 
 # Ensure the background is set
-exec feh --bg-scale ~/images/wallpaper
+exec --no-startup-id feh --bg-scale ~/images/wallpaper
 
 # Turn off screen after 10 mins
 exec --no-startup-id xset dpms 600
 
 # Lock screen after N minutes
-exec xautolock -detectsleep -time 1 -locker "i3lock -d -c 002000" &
+exec xautolock -detectsleep -time 1 -locker ~/bin/lock-i3 &
 
 # Lock screen with key command
-bindsym Mod1+Control+l exec  i3lock -d -c 000020
+bindsym Mod1+Control+l exec  ~/bin/lock-i3 000020
 
 # no more focus follows mouse!
 focus_follows_mouse no
 
 # network control so I can use vpn
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
@@ -226,6 +226,7 @@ mode "zipscene" {
 		bindsym $mod+a workspace 3; exec google-chrome https://zipscene.signin.aws.amazon.com/console ; mode "default"
 
 		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
+		bindsym $mod+i workspace 1; exec google-chrome --incognito ; mode "default"
 
 		bindsym $mod+v exec nmcli con up id Zipscene-VPN ; mode "default"
 		bindsym $mod+Shift+v exec nmcli con down id Zipscene-VPN ; mode "default"
@@ -240,6 +241,6 @@ bindsym $mod+z mode "zipscene"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango: M+ 1m, FontAwesome, 8 
+	font pango:DejaVu Sans Mono 8 
 	status_command i3status --config ~/.i3/i3status.conf
 }
