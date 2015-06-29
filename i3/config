@@ -32,7 +32,7 @@ font pango:DejaVu Sans Mono 8
 exec_always --no-startup-id xmodmap ~/.i3/xmodmap
 
 # Trying to bind capslock to trigger the remapping if it isn't set
-bindsym Caps_Lock exec xmodmap ~/.i3/xmodmap ; exec ~/bin/CAPSLOCKOFF
+bindsym Caps_Lock exec --no-startup-id xmodmap ~/.i3/xmodmap ; exec --no-startup-id ~/bin/CAPSLOCKOFF
 
 # Set up monitors using xrandr
 # exec --no-startup-id ~/bin/monitorsetup.sh right
@@ -44,16 +44,16 @@ exec --no-startup-id feh --bg-scale ~/images/wallpaper
 exec --no-startup-id xset dpms 600
 
 # Lock screen after N minutes
-exec xautolock -detectsleep -time 1 -locker ~/bin/lock-i3 &
+exec --no-startup-id xautolock -detectsleep -time 1 -locker "$HOME/bin/lock-i3" &
 
 # Lock screen with key command
-bindsym Mod1+Control+l exec  ~/bin/lock-i3 000020
+bindsym Mod1+Control+l exec ~/bin/lock-i3 
 
 # no more focus follows mouse!
 focus_follows_mouse no
 
 # network control so I can use vpn
-# exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
@@ -228,6 +228,8 @@ mode "zipscene" {
 		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
 		bindsym $mod+i workspace 1; exec google-chrome --incognito ; mode "default"
 
+		# zipscene vpn, depends on nm-applet running to start and stop it
+		bindsym $mod+n exec --no-startup-id nm-applet; mode "default"
 		bindsym $mod+v exec nmcli con up id Zipscene-VPN ; mode "default"
 		bindsym $mod+Shift+v exec nmcli con down id Zipscene-VPN ; mode "default"
 
