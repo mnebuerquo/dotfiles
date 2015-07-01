@@ -232,6 +232,8 @@ mode "zipscene" {
 		bindsym $mod+d workspace 3; exec google-chrome http://deploy.zmp2.com/ ; mode "default"
 		bindsym $mod+a workspace 3; exec google-chrome https://zipscene.signin.aws.amazon.com/console ; mode "default"
 
+		bindsym $mod+e workspace 3; exec google-chrome http://localhost:9200/_plugin/head/ ; mode "default"
+
 		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
 		bindsym $mod+i workspace 1; exec google-chrome --incognito ; mode "default"
 
