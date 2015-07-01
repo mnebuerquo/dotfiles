@@ -231,6 +231,7 @@ mode "zipscene" {
 		bindsym $mod+q workspace 3; exec google-chrome http://zsapi.qa.zipscene.com/rt ; mode "default"
 		bindsym $mod+d workspace 3; exec google-chrome http://deploy.zmp2.com/ ; mode "default"
 		bindsym $mod+a workspace 3; exec google-chrome https://zipscene.signin.aws.amazon.com/console ; mode "default"
+		bindsym $mod+s workspace 3; exec google-chrome https://zipscene.slack.com ; mode "default"
 
 		bindsym $mod+e workspace 3; exec google-chrome http://localhost:9200/_plugin/head/ ; mode "default"
 
