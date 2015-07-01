@@ -44,7 +44,7 @@ exec --no-startup-id feh --bg-scale ~/images/wallpaper
 exec --no-startup-id xset dpms 600
 
 # Lock screen after N minutes
-exec --no-startup-id xautolock -detectsleep -time 1 -locker "$HOME/bin/lock-i3" &
+exec --no-startup-id xautolock -detectsleep -time 1 -locker "$HOME/bin/lock-i3"
 
 # Lock screen with key command
 bindsym Mod1+Control+l exec ~/bin/lock-i3 
