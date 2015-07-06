@@ -23,6 +23,7 @@ echo
 # install .gitconfig
 echo "Installing ~/.gitconfig..."
 ln -s -f "$(pwd)/git/gitconfig" "$HOME/.gitconfig"
+ln -s -f "$(pwd)/git/gitignore" "$HOME/.gitignore"
 echo "~/.gitconfig"
 sh "$(pwd)/git/install.sh"
 echo 
