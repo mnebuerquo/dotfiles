@@ -36,6 +36,7 @@ NeoBundleFetch 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 NeoBundleFetch 'https://github.com/airblade/vim-gitgutter'
 NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
 NeoBundleFetch 'https://github.com/sjl/gundo.vim'
+NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 " NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
 
 call neobundle#end()
@@ -89,12 +90,15 @@ let g:agprg='ag
 map <c-b> :Gblame<CR>
 
 " Git Gutter
+" This doesn't work as well as I'd like because background colors make some
+" text colors hard to read
 " let g:gitgutter_highlight_lines = 1
 
 " I want to use my system clipboard
 set clipboard=unnamedplus
 
 " Tree view file browser
+" This is replaced by nerdtree
 "map <c-n> :Explore<CR>
 "let g:netrw_banner       = 0
 "let g:netrw_liststyle    = 3
@@ -134,4 +138,7 @@ set statusline+=%= " align right
 set statusline+=%4l\ /%4L " row / length
 set statusline+=\ \|%3c " column
 set statusline+=\ \ \| " ending spaces to keep column off end of line
+
+" Set my leader to something reachable
+:let mapleader = " "
 

@@ -20,6 +20,19 @@ echo "neoBundle will install other plugins next time you run vim."
 echo "Installed vim files!"
 echo
 
+# install .gitconfig
+echo "Installing ~/.gitconfig..."
+ln -s -f "$(pwd)/git/gitconfig" "$HOME/.gitconfig"
+echo "~/.gitconfig"
+sh "$(pwd)/git/install.sh"
+echo 
+
+# install .bashrc
+echo "Installing ~/.bashrc..."
+ln -s -f "$(pwd)/bash/bashrc" "$HOME/.bashrc"
+echo "~/.bashrc"
+echo 
+
 # install tmux.conf
 echo "Installing ~/.tmux.conf..."
 ln -s -f "$(pwd)/tmux/tmux.conf" "$HOME/.tmux.conf"
