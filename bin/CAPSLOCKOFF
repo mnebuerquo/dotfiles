@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# http://askubuntu.com/a/80301/139584
 from ctypes import *
 X11 = cdll.LoadLibrary("libX11.so.6")
 display = X11.XOpenDisplay(None)
