@@ -29,25 +29,25 @@ font pango:DejaVu Sans Mono 8
 
 # Capslock is now control
 # exec setxkbmap -option ctrl:nocaps
-exec_always xmodmap ~/.i3/xmodmap
+exec_always --no-startup-id xmodmap ~/.i3/xmodmap
 
 # Trying to bind capslock to trigger the remapping if it isn't set
-bindsym Caps_Lock exec xmodmap ~/.i3/xmodmap ; exec ~/bin/CAPSLOCKOFF
+bindsym Caps_Lock exec --no-startup-id xmodmap ~/.i3/xmodmap ; exec --no-startup-id ~/bin/CAPSLOCKOFF
 
 # Set up monitors using xrandr
-exec --no-startup-id ~/bin/monitorsetup.sh right
+# exec --no-startup-id ~/bin/monitorsetup.sh right
 
 # Ensure the background is set
-exec feh --bg-scale ~/images/wallpaper
+exec --no-startup-id feh --bg-scale ~/images/wallpaper
 
 # Turn off screen after 10 mins
 exec --no-startup-id xset dpms 600
 
 # Lock screen after N minutes
-exec xautolock -detectsleep -time 1 -locker "i3lock -d -c 002000" &
+exec --no-startup-id xautolock -detectsleep -time 1 -locker "$HOME/bin/lock-i3"
 
 # Lock screen with key command
-bindsym Mod1+Control+l exec  i3lock -d -c 000020
+bindsym Mod1+Control+l exec ~/bin/lock-i3 
 
 # no more focus follows mouse!
 focus_follows_mouse no
@@ -154,16 +154,16 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1;
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2;
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3;
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4;
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5;
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6;
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7;
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8;
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9;
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10;
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -202,8 +202,15 @@ mode "monitor" {
         bindsym $mod+r exec --no-startup-id ~/bin/monitorsetup.sh right ; mode "default"
         bindsym $mod+l exec --no-startup-id ~/bin/monitorsetup.sh left ; mode "default"
 
+		# moving workspaces between monitors
+		bindsym $mod+m move workspace to output left; mode "default"
+		bindsym $mod+Shift+m move workspace to output right; mode "default"
+
 		# arrange workspaces so all are on visible monitors
 		bindsym $mod+a exec --no-startup-id ~/bin/i3-move-workspaces ; mode "default"
+
+		# move current workspace to primary monitor
+		bindsym $mod+p exec --no-startup-id ~/bin/i3-to-primary; mode "default"
 
 		# set wallpaper
 		bindsym $mod+w exec feh --bg-scale ~/images/wallpaper ; mode "default"
@@ -225,8 +232,13 @@ mode "zipscene" {
 		bindsym $mod+d workspace 3; exec google-chrome http://deploy.zmp2.com/ ; mode "default"
 		bindsym $mod+a workspace 3; exec google-chrome https://zipscene.signin.aws.amazon.com/console ; mode "default"
 
-		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
+		bindsym $mod+e workspace 3; exec google-chrome http://localhost:9200/_plugin/head/ ; mode "default"
 
+		bindsym $mod+p workspace 1; exec google-chrome --incognito https://accounts.google.com/ServiceLoginAuth?continue=http%3A%2F%2Fgmail.google.com%2Fgmail&service=mail&Email=sherman.adelson@gmail.com ; mode "default"
+		bindsym $mod+i workspace 1; exec google-chrome --incognito ; mode "default"
+
+		# zipscene vpn, depends on nm-applet running to start and stop it
+		bindsym $mod+n exec --no-startup-id nm-applet; mode "default"
 		bindsym $mod+v exec nmcli con up id Zipscene-VPN ; mode "default"
 		bindsym $mod+Shift+v exec nmcli con down id Zipscene-VPN ; mode "default"
 
@@ -240,6 +252,6 @@ bindsym $mod+z mode "zipscene"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango: M+ 1m, FontAwesome, 8 
+	font pango:DejaVu Sans Mono 8 
 	status_command i3status --config ~/.i3/i3status.conf
 }

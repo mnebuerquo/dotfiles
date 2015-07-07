@@ -1,15 +1,18 @@
 #!/bin/sh
 
 # move i3 workspaces to real monitors
+
+# TODO:
 # this would be better with a script in another language
 # i3 gives us json enumeration of workspaces
 # http://infra.in.zekjur.net/archives/i3-discuss/2012-July/000820.html
 # i3-msg -t get_workspaces
+
+# We don't need to go to 10, just one workspace for each output
+# Otherwise we get a workspace 12 or something that we're not using
 w=1
-while [ $w -le 10 ]; do
-	for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
-		# move workspace $w to $output
-		i3-msg "workspace $w ; move workspace to output $output"
-		w=$((w+1))
-	done
+for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
+	# move workspace $w to $output
+	i3-msg "workspace $w ; move workspace to output $output"
+	w=$((w+1))
 done
