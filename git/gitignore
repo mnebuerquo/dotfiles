@@ -1,2 +1,8 @@
+# vim temp files
 *~
 .*.sw?
+
+# subversion junk
+.svn
+*.svn*
+
