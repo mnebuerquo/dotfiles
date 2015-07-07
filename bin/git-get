@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# http://stackoverflow.com/a/10312587/5114
+
 for remote in `git branch -r`; do git branch --track $remote; done
 git pull --all
 

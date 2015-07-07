@@ -1,0 +1,8 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[user]
+	email = sherman.adelson@gmail.com
+[color]
+	status = auto
+	ui = true

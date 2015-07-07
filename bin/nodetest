@@ -1,0 +1,16 @@
+#!/bin/sh
+
+title "node-inspector"
+
+# we may need more than one of these, so arg is a value to add to both port numbers
+ADD=${1:-0}
+DBP=$((0+$ADD))
+WP=$((4001+$ADD))
+
+CMD="/usr/bin/google-chrome-stable http://127.0.0.1:$WP/debug?port=$DBP"
+echo $CMD 
+eval $CMD
+
+# TODO: kill old node-inspector instances
+node-inspector --debug-port=$DBP --web-port=$WP &
+
