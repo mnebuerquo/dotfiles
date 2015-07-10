@@ -142,3 +142,6 @@ set statusline+=\ \ \| " ending spaces to keep column off end of line
 " Set my leader to something reachable
 :let mapleader = " "
 
+" Markdown files (*.md) are detected as Modula-2 by default
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
