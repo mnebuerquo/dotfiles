@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # this is a command to start tmux for ubuntu 12.04
+# I use this in a terminal launcher button on my gnome panel
 
 tmux attach -t main || tmux new -s main
 
