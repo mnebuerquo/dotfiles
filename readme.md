@@ -56,3 +56,6 @@ possible with their own configurations.
 * https://github.com/oppenlander
 * https://github.com/rjhilgefort
 
+Also thanks to the community on the Stack Exchange sites. Stack Exchange has surpassed Google as the 
+most tranformative set of websites for my work.
+
