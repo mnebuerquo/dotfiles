@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# This method of installing ag is for ubuntu 12, where some of the dependencies
+# are unavailable. We're using the steps from the readme to install from source.
+# https://github.com/ggreer/the_silver_searcher#installing
+# https://github.com/rking/ag.vim
+
+# ag/build is in .gitignore
+mkdir build
+cd build
+git clone git@github.com:ggreer/the_silver_searcher.git
+cd the_silver_searcher
+sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+./build.sh
+sudo make install
+
