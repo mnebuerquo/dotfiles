@@ -139,10 +139,20 @@ set statusline+=%= " align right
 set statusline+=%4l\ /%4L " row / length
 set statusline+=\ \|%3c " column
 set statusline+=\ \ \| " ending spaces to keep column off end of line
+set statusline+=\ [%{&fo}%{&tw}]
 
 " Set my leader to something reachable
 :let mapleader = " "
 
 " Markdown files (*.md) are detected as Modula-2 by default
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Auto wrap!
+set tw=72
+set fo-=t
+" highlight lines past the end
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
 
