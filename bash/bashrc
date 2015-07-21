@@ -67,12 +67,3 @@ fi
 xmodmap ~/.i3/xmodmap
 ~/bin/CAPSLOCKOFF
 
-# {{{
-# Node Completion - Auto-generated, do not touch.
-# https://github.com/hij1nx/complete/issues/6 
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
