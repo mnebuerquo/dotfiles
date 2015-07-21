@@ -62,8 +62,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# make capslock work as ctrl instead
-# turn off capslock in case it was already on
-xmodmap ~/.i3/xmodmap
+# Make capslock work as ctrl instead
+# Turn off capslock in case it was already on
+# this gives an error if xmodmap is not installed such as when you don't
+# have X11, like on servers. Just send the output to dev null so we
+# don't have to look at it when we start bash.
+# TODO: we should move this to a script in bin and source it from here.
+xmodmap ~/.i3/xmodmap &> /dev/null
 ~/bin/CAPSLOCKOFF
 
