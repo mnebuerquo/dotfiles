@@ -99,7 +99,10 @@ map <c-b> :Gblame<CR>
 " let g:gitgutter_highlight_lines = 1
 
 " I want to use my system clipboard
-set clipboard=unnamedplus
+" On ubuntu 14 unnamedplus worked
+" On ubuntu 12, unnamed worked
+" Can I make this decide which to use?
+set clipboard=unnamed
 
 " Tree view file browser
 " This is replaced by nerdtree
