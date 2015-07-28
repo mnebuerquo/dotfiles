@@ -103,7 +103,7 @@ map <c-b> :Gblame<CR>
 " On ubuntu 14 unnamedplus worked
 " On ubuntu 12, unnamed worked
 " Can I make this decide which to use?
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Tree view file browser
 " This is replaced by nerdtree

@@ -1,0 +1,8 @@
+# i3wm notes
+
+## Ctrl+space
+
+With i3 ubuntu uses ibus, so ctrl+space may be bound to an ibus mapping.
+http://askubuntu.com/questions/243639/ctrlspace-has-been-bound-to-invoke-some-input-method-and-does-not-work-in-ema
+
+
