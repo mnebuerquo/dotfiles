@@ -34,6 +34,12 @@ ln -s -f "$(pwd)/bash/bashrc" "$HOME/.bashrc"
 echo "~/.bashrc"
 echo 
 
+# install .profile
+echo "Installing ~/.profile..."
+ln -s -f "$(pwd)/bash/profile" "$HOME/.profile"
+echo "~/.profile"
+echo 
+
 # install tmux.conf
 echo "Installing ~/.tmux.conf..."
 ln -s -f "$(pwd)/tmux/tmux.conf" "$HOME/.tmux.conf"
