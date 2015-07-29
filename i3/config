@@ -254,6 +254,6 @@ bindsym $mod+z mode "zipscene"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango:DejaVu Sans Mono 8 
+	font pango:DejaVu Sans Mono, Icons 8 
 	status_command i3status --config ~/.i3/i3status.conf
 }
