@@ -163,3 +163,10 @@ augroup vimrc_autocmds
   autocmd BufEnter * match OverLength /\%80v.*/
 augroup END
 
+" prevent ctrl q from being captured by terminal
+" silent !stty -ixon > /dev/null 2>/dev/null
+" add ctrl q to exit without saving
+" nmap <C-Q> :q<CR>
+
+" ctrl o closes all but the current split
+nmap <C-O> :only<CR>
