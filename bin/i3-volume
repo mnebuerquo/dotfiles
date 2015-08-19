@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# I was using some commands in i3 bindings which hard-coded which sound
+# sink to use. This was using 0, but my laptop had sink 1 active. I
+# think this also changes when you plug in headphones or something too.
+# So I wrote this script to do volume commands and auto-detect the sink.
+# 
+# https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
+
+SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
+if [ "mute" = "$1" ]; then
+	CMD="set-sink-mute"
+	AMT="toggle"
+elif [ "up" = "$1" ]; then
+	CMD="set-sink-volume"
+	AMT="+5%"
+else
+	CMD="set-sink-volume"
+	AMT="-5%"
+fi
+
+pactl $CMD $SINK -- $AMT

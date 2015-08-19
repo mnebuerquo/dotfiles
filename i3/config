@@ -56,9 +56,13 @@ focus_follows_mouse no
 exec --no-startup-id nm-applet
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+# I added my own shell script to do this better
+bindsym XF86AudioRaiseVolume exec ~/bin/i3-volume up #increase sound volume
+bindsym XF86AudioLowerVolume exec ~/bin/i3-volume down #decrease sound volume
+bindsym XF86AudioMute exec ~/bin/i3-volume mute # mute sound
+bindsym $mod+Shift+plus exec ~/bin/i3-volume up #increase sound volume
+bindsym $mod+Shift+minus exec ~/bin/i3-volume down #decrease sound volume
+bindsym $mod+Shift+m exec ~/bin/i3-volume mute # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
