@@ -38,8 +38,7 @@ bindsym Caps_Lock exec --no-startup-id xmodmap ~/.i3/xmodmap ; exec --no-startup
 # exec --no-startup-id ~/bin/monitorsetup.sh right
 
 # Ensure the background is set
-exec --no-startup-id feh --bg-scale ~/images/wallpaper
-
+exec --no-startup-id ~/bin/i3-background
 # Turn off screen after 10 mins
 exec --no-startup-id xset dpms 600
 
@@ -218,7 +217,7 @@ mode "monitor" {
 		bindsym $mod+p exec --no-startup-id ~/bin/i3-to-primary; mode "default"
 
 		# set wallpaper
-		bindsym $mod+w exec feh --bg-scale ~/images/wallpaper ; mode "default"
+		bindsym $mod+w exec ~/bin/i3-background; mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
