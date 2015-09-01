@@ -171,3 +171,9 @@ augroup END
 
 " ctrl o closes all but the current split
 nmap <C-O> :only<CR>
+
+" reindent crappy php files
+nmap <leader>ii gg=G
+" replace any consecutive spaces mid-line with single space
+nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
+
