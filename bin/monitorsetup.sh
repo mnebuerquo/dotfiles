@@ -16,22 +16,36 @@ case $1 in
 		;;
 esac
 
+CMD="xrandr "
+PREVIOUS=""
+FIRST=""
 for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
-		if [[ $output =~ ^LVDS.*$ ]]; then
-						LVDS=$output
-		fi
+	if [[ $output =~ ^(eDP|LVDS).*$ ]]; then
+		echo "Detected built-in screen: $output"
+		CMD="$CMD --output $output --auto --primary"
+		FIRST=$output
+		PREVIOUS=$output
+	fi
 done
 
-PREVIOUS="$LVDS"
-PRIMARY="--primary"
+
 for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
-	if [[ ! $output =~ ^LVDS.*$ ]]; then
-		CMD="xrandr --output $LVDS --auto --output $output \
-			--pos 0x0 --auto $DIRECTION $PREVIOUS $PRIMARY"
-		echo "$CMD"
-		eval "$CMD"
-		PRIMARY=""
+	if [ "$output" != "$FIRST" ]; then
+		CMD="$CMD --output $output --pos 0x0 --auto "
+		if [ ! -z "$PREVIOUS" ]; then
+			CMD="$CMD $DIRECTION $PREVIOUS "
+		fi
 		PREVIOUS="$output"
 	fi
 done
+
+for output in $(xrandr | grep '\Wdisconnected' | awk '{ print $1 }'); do
+	if [[ ! $output =~ ^(eDP|LVDS).*$ ]]; then
+		CMD="$CMD --output $output --off "
+	fi
+done
+
+echo "$CMD"
+eval "$CMD"
+
 
