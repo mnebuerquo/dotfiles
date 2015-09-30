@@ -13,6 +13,6 @@
 w=1
 for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
 	# move workspace $w to $output
-	i3-msg "workspace $w ; move workspace to output $output"
+	i3-msg "workspace $w; move workspace to output $output"
 	w=$((w+1))
 done
