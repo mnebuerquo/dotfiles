@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# make bin directory first
+echo "Creating $HOME/bin directory if it doesn't exist."
+mkdir -p "$HOME/bin"
+
 # add i3 settings
 echo "Installing i3 configuration files..."
 mkdir -p "$HOME/.i3"
@@ -15,6 +19,7 @@ echo
 echo "Installing ~/.vimrc and neoBundle"
 mkdir -p "$HOME/.vim"
 ln -s -f "$(pwd)/vim/vimrc" "$HOME/.vimrc"
+echo "Never pipe to sh!"
 curl -s -S -f https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 echo "neoBundle will install other plugins next time you run vim."
 echo "Installed vim files!"
@@ -48,7 +53,6 @@ echo
 
 # make symlinks to all bin scripts
 echo "Installing ~/bin..."
-mkdir -p "$HOME/bin"
 for path in ./bin/* ; do
 	echo "${path}"
 	if [ -e "${path}" ] && [ -f "${path}" ]; then
