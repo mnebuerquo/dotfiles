@@ -20,7 +20,9 @@ echo "Installing ~/.vimrc and neoBundle"
 mkdir -p "$HOME/.vim"
 ln -s -f "$(pwd)/vim/vimrc" "$HOME/.vimrc"
 echo "Never pipe to sh!"
-curl -s -S -f https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+wget https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh
+sh install.sh
+rm install.sh
 echo "neoBundle will install other plugins next time you run vim."
 echo "Installed vim files!"
 echo
