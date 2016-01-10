@@ -5,6 +5,8 @@ environment on any machines I use.
 
 ## Installation
 
+### Normal Install
+
 1. Log in as the user who will have the dotfiles installed.
 2. Clone this repo to a directory. The configurations will be symlinked,
    so this directory is not temporary.
@@ -12,6 +14,17 @@ environment on any machines I use.
 
 This installs everything to your home directory. The files are symlinked
 from the cloned repo, so you should not remove that directory.
+
+### One Script Install
+
+It's actually two commands because it is unsafe to pipe wget to sh. So
+if anyone gives you an install command ending in `| sh`, don't do it.
+Split it into two separate commands instead.
+
+```bash
+wget https://raw.githubusercontent.com/mnebuerquo/dotfiles/master/web-install.sh
+sh web-install.sh
+```
 
 ## Contents
 
