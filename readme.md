@@ -21,6 +21,8 @@ It's actually two commands because it is unsafe to pipe wget to sh. So
 if anyone gives you an install command ending in `| sh`, don't do it.
 Split it into two separate commands instead.
 
+This will install the latest version of git, so it requires sudo.
+
 ```bash
 wget https://raw.githubusercontent.com/mnebuerquo/dotfiles/master/web-install.sh
 sh web-install.sh
