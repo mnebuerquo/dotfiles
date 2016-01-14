@@ -7,12 +7,12 @@ set runtimepath+=~/.vim/bundle/*/
 if !1 | finish | endif
 
 if has('vim_starting')
-  if &compatible
-    set nocompatible		   " Be iMproved
-  endif
+	if &compatible
+		set nocompatible		   " Be iMproved
+	endif
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+	" Required:
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -66,34 +66,34 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = 'ag %s -i 
-	\ --nocolor 
-	\ --nogroup 
-	\ --hidden
-	\ --ignore .git
-	\ --ignore node_modules
-	\ --ignore .svn
-	\ --ignore .hg
-	\ --ignore .DS_Store
-	\ --ignore "**/*.pyc"
-	\ --ignore "**/*.min.js"
-	\ --ignore "**/*.lesscache"
-	\ -g ""'
+			\ --nocolor 
+			\ --nogroup 
+			\ --hidden
+			\ --ignore .git
+			\ --ignore node_modules
+			\ --ignore .svn
+			\ --ignore .hg
+			\ --ignore .DS_Store
+			\ --ignore "**/*.pyc"
+			\ --ignore "**/*.min.js"
+			\ --ignore "**/*.lesscache"
+			\ -g ""'
 
 let g:agprg='ag 
-	\ --column 
-	\ --noheading
-	\ --nocolor 
-	\ --nogroup 
-	\ --hidden
-	\ --ignore .git
-	\ --ignore node_modules
-	\ --ignore .svn
-	\ --ignore .hg
-	\ --ignore .DS_Store
-	\ --ignore "**/*.pyc"
-	\ --ignore "**/*.min.js"
-	\ --ignore "**/*.lesscache"
-	\ '
+			\ --column 
+			\ --noheading
+			\ --nocolor 
+			\ --nogroup 
+			\ --hidden
+			\ --ignore .git
+			\ --ignore node_modules
+			\ --ignore .svn
+			\ --ignore .hg
+			\ --ignore .DS_Store
+			\ --ignore "**/*.pyc"
+			\ --ignore "**/*.min.js"
+			\ --ignore "**/*.lesscache"
+			\ '
 
 " Git Blame from Fugitive
 map <c-b> :Gblame<CR>
@@ -163,8 +163,8 @@ set tw=72
 set fo-=t
 " highlight lines past the end
 augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-  autocmd BufEnter * match OverLength /\%80v.*/
+	autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+	autocmd BufEnter * match OverLength /\%80v.*/
 augroup END
 
 " prevent ctrl q from being captured by terminal
@@ -179,4 +179,11 @@ nmap <C-O> :only<CR>
 nmap <leader>ii gg=G
 " replace any consecutive spaces mid-line with single space
 nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
+
+" I'm so tired of having backup/swap files in my code directories
+" They're already in my .gitignore, but they trigger the watcher
+" and cause my project to rebuild even before I save a file.
+" https://news.ycombinator.com/item?id=1690673
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
 
