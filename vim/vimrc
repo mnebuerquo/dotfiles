@@ -36,6 +36,7 @@ NeoBundleFetch 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 NeoBundleFetch 'https://github.com/sjl/gundo.vim'
 NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 NeoBundleFetch 'https://github.com/easymotion/vim-easymotion'
+NeoBundleFetch 'https://github.com/tpope/vim-surround'
 
 NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
 NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
