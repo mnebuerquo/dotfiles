@@ -7,3 +7,6 @@ sudo apt-get update
 sudo apt-get --allow-unauthenticated install sur5r-keyring
 sudo apt-get update
 sudo apt-get install i3
+
+# screen saver and lock
+sudo apt-get install xautolock
