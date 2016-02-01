@@ -15,18 +15,17 @@ environment on any machines I use.
 This installs everything to your home directory. The files are symlinked
 from the cloned repo, so you should not remove that directory.
 
+If some things aren't correct or you're on a newly provisioned desktop
+or server, you can use the install scripts in [server](server/) and
+[desktop](desktop/) to add the missing packages. These are only tested
+on Ubuntu 14.04.
+
 ### One Script Install
 
-It's actually two commands because it is unsafe to pipe wget to sh. So
-if anyone gives you an install command ending in `| sh`, don't do it.
-Split it into two separate commands instead.
-
-This will install the latest version of git, so it requires sudo.
-
-```bash
-wget https://raw.githubusercontent.com/mnebuerquo/dotfiles/master/web-install.sh
-sh web-install.sh
-```
+There is no more one-script install. I removed it because there was such
+a difference between a server and a desktop machine. This may come back
+later when I have time to do more testing. It will actually be a 
+two-script install.
 
 ## Contents
 

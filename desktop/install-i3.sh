@@ -10,3 +10,7 @@ sudo apt-get install i3
 
 # screen saver and lock
 sudo apt-get install xautolock
+
+# font-awesome for i3status
+sudo apt-get install fonts-font-awesome
+
