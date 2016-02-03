@@ -27,6 +27,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 NeoBundleFetch 'https://github.com/kien/ctrlp.vim'
 NeoBundleFetch 'https://github.com/rking/ag.vim'
+NeoBundleFetch 'https://github.com/dyng/ctrlsf.vim'
 NeoBundleFetch 'https://github.com/editorconfig/editorconfig-vim'
 NeoBundleFetch 'https://github.com/tpope/vim-fugitive'
 NeoBundleFetch 'https://github.com/airblade/vim-gitgutter'
@@ -107,6 +108,13 @@ let g:ag_prg='ag
 			\ --ignore "**/*.min.js"
 			\ --ignore "**/*.lesscache"
 			\ '
+
+" Quick Keys for Ag:
+" Search for word under cursor
+noremap <Leader>a :Ag! -Q <C-r>=Escape(expand('<cword>'))<CR><CR>
+function! Escape(stuff)
+	return substitute(escape(a:stuff, '\/.*$^~[]'), "\n", '\\n', "g")
+endfunction
 
 " Git Blame from Fugitive
 map <c-b> :Gblame<CR>
