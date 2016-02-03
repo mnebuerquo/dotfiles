@@ -38,15 +38,27 @@ NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 NeoBundleFetch 'https://github.com/easymotion/vim-easymotion'
 NeoBundleFetch 'https://github.com/tpope/vim-surround'
 
-NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
-NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
+" CSV is something I use infrequently
 NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
+
+" makes it a little easier than html highlighting
 NeoBundleFetch 'https://github.com/mustache/vim-mustache-handlebars'
-NeoBundleFetch 'https://github.com/kchmck/vim-coffee-script'
+
+" CSS plugins
 NeoBundleFetch 'https://github.com/groenewege/vim-less'
 NeoBundleFetch 'https://github.com/hail2u/vim-css3-syntax'
 NeoBundleFetch 'https://github.com/skammer/vim-css-color'
+
+" Javascript plugins
+NeoBundleFetch 'https://github.com/kchmck/vim-coffee-script'
 NeoBundleFetch 'https://github.com/pangloss/vim-javascript'
+NeoBundleFetch 'https://github.com/pangloss/vim-javascript'
+
+" PHP plugins
+NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
+NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
+NeoBundleFetch 'https://github.com/joonty/vdebug'
+
 " NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
 
 call neobundle#end()
@@ -80,7 +92,7 @@ let g:ctrlp_user_command = 'ag %s -i
 			\ --ignore "**/*.lesscache"
 			\ -g ""'
 
-let g:agprg='ag 
+let g:ag_prg='ag 
 			\ --column 
 			\ --noheading
 			\ --nocolor 
