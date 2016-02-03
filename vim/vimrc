@@ -213,6 +213,8 @@ set directory=~/.vim/swap//
 if !exists('g:vdebug_options')
 	let g:vdebug_options = {}
 endif
+" Vdebug set breakpoint
+nmap <leader>b :Breakpoint<CR>
 
 " For local configuration we need files not in git
 " http://superuser.com/questions/438232/include-all-vim-files-in-a-folder
