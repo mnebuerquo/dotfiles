@@ -14,3 +14,5 @@ sudo apt-get install xautolock
 # font-awesome for i3status
 sudo apt-get install fonts-font-awesome
 
+# feh for backgrounds
+sudo apt-get install feh

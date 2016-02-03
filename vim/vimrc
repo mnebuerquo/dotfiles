@@ -200,3 +200,4 @@ nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
+
