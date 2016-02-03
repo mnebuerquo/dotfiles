@@ -200,4 +200,9 @@ nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
-
+" For local configuration we need files not in git
+" http://superuser.com/questions/438232/include-all-vim-files-in-a-folder
+" This will load all vim configs in ~/.vim/localconf
+for rcfile in split(globpath("~/.vim/localconf", "*.vim"), '\n') 
+	execute('source '.rcfile)
+endfor
