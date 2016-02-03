@@ -200,6 +200,12 @@ nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
+" Vdebug doesn't set up its options ahead of time
+" https://github.com/joonty/vdebug/issues/200
+if !exists('g:vdebug_options')
+	let g:vdebug_options = {}
+endif
+
 " For local configuration we need files not in git
 " http://superuser.com/questions/438232/include-all-vim-files-in-a-folder
 " This will load all vim configs in ~/.vim/localconf
