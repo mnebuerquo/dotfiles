@@ -20,7 +20,10 @@ echo "Installing ~/.vimrc and neoBundle"
 mkdir -p "$HOME/.vim"
 mkdir -p "$HOME/.vim/backup/"
 mkdir -p "$HOME/.vim/swap/"
+# vimrc file
 ln -s -f "$(pwd)/vim/vimrc" "$HOME/.vimrc"
+# directory with more rc files
+ln -s -f "$(pwd)/vim/rc" "$HOME/.vim/rc"
 echo "Never pipe to sh!"
 wget -O neobundle-install.sh https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh
 sh neobundle-install.sh
