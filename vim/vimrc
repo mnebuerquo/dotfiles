@@ -114,7 +114,8 @@ let g:ag_prg='ag
 noremap <Leader>a :Ag! -Q <C-r>=Escape(expand('<cword>'))<CR><CR>
 function! Escape(stuff)
 	return substitute(escape(a:stuff, '\/.*$^~[]'), "\n", '\\n', "g")
-endfunction
+endfunction 
+nnoremap <Leader>h :Ag<SPACE>
 
 " Git Blame from Fugitive
 map <c-b> :Gblame<CR>
