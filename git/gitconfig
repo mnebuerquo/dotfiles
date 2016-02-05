@@ -3,7 +3,7 @@
 	excludesfile = ~/.gitignore
 [user]
 	email = sherman.adelson@gmail.com
-	name = Mnebuerquo
+	name = Sherman Adelson
 [color]
 	status = auto
 	ui = true
