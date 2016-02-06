@@ -6,7 +6,7 @@
 if [ "$SSH_CONNECTION" ]; then
 	echo "Remote connection, let's start tmux!"
 	if [ -z ${TMUX} ]; then
-		source tmux-term
+		~/bin/tmux-term
 	fi
 else
 	echo "Local connection, not auto-starting tmux."
