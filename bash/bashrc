@@ -71,3 +71,5 @@ fi
 xmodmap ~/.i3/xmodmap &> /dev/null
 ~/bin/CAPSLOCKOFF
 
+# attach to tmux if we're in ssh login
+~/bin/tmux-ssh-only
