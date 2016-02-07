@@ -3,12 +3,12 @@
 # if this is a remote connection, then auto-attach to running tmux
 # session, else it's local, so don't auto-anything.
 
-if [ "$SSH_CONNECTION" ]; then
-	echo "Remote connection, let's start tmux!"
-	if [ -z ${TMUX} ]; then
+if [ -z ${TMUX} ]; then
+	if [ "$SSH_CONNECTION" ]; then
+		echo "Remote connection, attaching to tmux session!"
 		~/bin/tmux-term
+	else
+		echo "Local connection, not auto-starting tmux."
 	fi
-else
-	echo "Local connection, not auto-starting tmux."
 fi
 
