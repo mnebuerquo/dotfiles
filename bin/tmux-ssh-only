@@ -6,7 +6,6 @@
 if [ -z ${TMUX} ]; then
 	if [ "$SSH_CONNECTION" ]; then
 		~/bin/tmux-term
-	else
 	fi
 fi
 
