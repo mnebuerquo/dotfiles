@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# if this is a remote connection, then auto-attach to running tmux
+# session, else it's local, so don't auto-anything.
+
+if [ -z ${TMUX} ]; then
+	if [ "$SSH_CONNECTION" ]; then
+		~/bin/tmux-term
+	fi
+fi
+
