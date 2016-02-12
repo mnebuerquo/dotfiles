@@ -43,7 +43,7 @@ exec --no-startup-id ~/bin/i3-background
 exec --no-startup-id xset dpms 600
 
 # Lock screen after N minutes
-exec --no-startup-id xautolock -detectsleep -time 5 -locker "$HOME/bin/lock-i3"
+exec --no-startup-id xautolock -detectsleep -time 1 -corners --00 -locker "$HOME/bin/lock-i3"
 
 # Lock screen with key command
 bindsym Mod1+Control+l exec ~/bin/lock-i3 
