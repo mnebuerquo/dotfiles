@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# This script is used to generate a list of all users with crontabs, and
+# show what they are running.
+
+for user in $(cut -f1 -d: /etc/passwd); do 
+	echo $user; 
+	crontab -u $user -l; 
+done
+
