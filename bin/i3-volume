@@ -8,6 +8,16 @@
 # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
 
 SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
+# if we didn't pick a sink, that means they aren't listed as RUNNING
+# so just pick the last in the list
+if [ -z $SINK ]; then
+	SINK=$(pactl list short sinks | tail -n 1 | cut -f1)
+fi
+# If we didn't pick a sink, then just use 0, which should be first
+if [ -z $SINK ]; then
+	SINK=0
+fi
+
 if [ "mute" = "$1" ]; then
 	CMD="set-sink-mute"
 	AMT="toggle"
