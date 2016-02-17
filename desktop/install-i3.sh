@@ -16,3 +16,7 @@ sudo apt-get install fonts-font-awesome
 
 # feh for backgrounds
 sudo apt-get install feh
+
+# fix for nautilus trying to show a desktop window whenever it opens
+sudo gsettings set org.gnome.desktop.background show-desktop-icons false
+
