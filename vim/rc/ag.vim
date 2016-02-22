@@ -15,6 +15,8 @@ let g:ctrlp_user_command = 'ag %s -i
 			\ --hidden
 			\ --ignore .git
 			\ --ignore node_modules
+			\ --ignore bower_components
+			\ --ignore "build/*"
 			\ --ignore .svn
 			\ --ignore .hg
 			\ --ignore .DS_Store
@@ -31,6 +33,8 @@ let g:ag_prg='ag
 			\ --hidden
 			\ --ignore .git
 			\ --ignore node_modules
+			\ --ignore bower_components
+			\ --ignore "build/*"
 			\ --ignore .svn
 			\ --ignore .hg
 			\ --ignore .DS_Store
