@@ -203,8 +203,8 @@ bindsym $mod+r mode "resize"
 
 mode "monitor" {
 		# scan for monitors
-		bindsym $mod+r exec --no-startup-id ~/bin/monitorsetup.sh right ; mode "default"
-		bindsym $mod+l exec --no-startup-id ~/bin/monitorsetup.sh left ; mode "default"
+		bindsym $mod+r exec --no-startup-id ~/bin/monitorsetup.sh right ; exec --no-startup-id ~/bin/i3-background ; mode "default"
+		bindsym $mod+l exec --no-startup-id ~/bin/monitorsetup.sh left ; exec --no-startup-id ~/bin/i3-background ; mode "default"
 
 		# moving workspaces between monitors
 		bindsym $mod+m move workspace to output left; mode "default"
