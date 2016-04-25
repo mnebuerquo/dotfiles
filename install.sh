@@ -28,6 +28,7 @@ ln -s -f "$(pwd)/vim/vimrc" "$HOME/.vimrc"
 
 # directory with more rc files
 # be careful not to make a recursive symlink
+# linking on osx isn't the same, so be careful with path
 #ln -s -f "$(pwd)/vim/rc" "$HOME/.vim/rc"
 cd "$HOME/.vim"
 ln -s -f "$INSTALLDIR/vim/rc"
