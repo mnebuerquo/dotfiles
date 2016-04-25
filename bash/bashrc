@@ -68,8 +68,7 @@ fi
 # have X11, like on servers. Just send the output to dev null so we
 # don't have to look at it when we start bash.
 # TODO: we should move this to a script in bin and source it from here.
-xmodmap ~/.i3/xmodmap &> /dev/null
-~/bin/CAPSLOCKOFF
+~/bin/bashrc-capslock.sh
 
 # attach to tmux if we're in ssh login
 ~/bin/tmux-ssh-only
