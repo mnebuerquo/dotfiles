@@ -1,5 +1,7 @@
 #!/bin/sh
 
+INSTALLDIR=$(pwd)
+
 # make bin directory first
 echo "Creating $HOME/bin directory if it doesn't exist."
 mkdir -p "$HOME/bin"
@@ -20,12 +22,17 @@ echo "Installing ~/.vimrc and neoBundle"
 mkdir -p "$HOME/.vim"
 mkdir -p "$HOME/.vim/backup/"
 mkdir -p "$HOME/.vim/swap/"
-mkdir -p "$HOME/.vim/rc/"
+#mkdir -p "$HOME/.vim/rc/"
 # vimrc file
 ln -s -f "$(pwd)/vim/vimrc" "$HOME/.vimrc"
+
 # directory with more rc files
 # be careful not to make a recursive symlink
-ln -s -f "$(pwd)/vim/rc" "$HOME/.vim/"
+#ln -s -f "$(pwd)/vim/rc" "$HOME/.vim/rc"
+cd "$HOME/.vim"
+ln -s -f "$INSTALLDIR/vim/rc"
+cd "$INSTALLDIR"
+
 echo "Never pipe to sh!"
 wget -O neobundle-install.sh https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh
 sh neobundle-install.sh
