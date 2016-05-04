@@ -72,3 +72,6 @@ fi
 
 # attach to tmux if we're in ssh login
 ~/bin/tmux-ssh-only
+
+# for OSX, use color in bash
+export CLICOLOR=1
