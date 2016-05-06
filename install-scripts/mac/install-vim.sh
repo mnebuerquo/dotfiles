@@ -1,7 +1,10 @@
 #!/bin/sh
 
-brew install vim 
-brew install macvim
+brew tap macvim-dev/macvim
+brew install --HEAD macvim-dev/macvim/macvim
+
+#brew install vim 
+#brew install macvim
 
 brew link macvim
 
