@@ -75,3 +75,6 @@ fi
 
 # for OSX, use color in bash
 export CLICOLOR=1
+# close to solarized
+# https://github.com/seebi/dircolors-solarized/issues/10
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
