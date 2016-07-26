@@ -10,3 +10,4 @@ nmap <leader>ii gg=G
 " replace any consecutive spaces mid-line with single space
 nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
 
+:noremap <leader><leader>h :set hlsearch! hlsearch?<CR>
