@@ -61,6 +61,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
 
 # Make capslock work as ctrl instead
 # Turn off capslock in case it was already on
@@ -78,3 +81,9 @@ export CLICOLOR=1
 # close to solarized
 # https://github.com/seebi/dircolors-solarized/issues/10
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+# in case we need proxy settings
+if [ -f ~/.bash_proxy ]; then
+	. ~/.bash_proxy
+fi
+

@@ -2,3 +2,5 @@
 
 brew install tmux
 
+brew install wget
+
