@@ -1,6 +1,3 @@
-" Set my leader to something reachable
-:let mapleader = " "
-
 " Set color scheme!
 "colorscheme base16-isotope
 

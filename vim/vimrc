@@ -3,6 +3,10 @@
 " Individual bundles were not being added to my runtimepath
 set runtimepath+=~/.vim/bundle/*/
 
+" Set my leader to something reachable
+" This must be done before anything that tries to map with leader
+:let mapleader = " "
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
