@@ -43,6 +43,10 @@ NeoBundleFetch 'https://github.com/sjl/gundo.vim'
 NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 NeoBundleFetch 'https://github.com/easymotion/vim-easymotion'
 NeoBundleFetch 'https://github.com/tpope/vim-surround'
+NeoBundleFetch 'https://github.com/guns/vim-clojure-static'
+"NeoBundleFetch 'https://github.com/eapache/rainbow_parentheses.vim'
+NeoBundleFetch 'https://github.com/luochen1990/rainbow'
+"NeoBundleFetch 'https://github.com/tpope/vim-fireplace'
 
 " CSV is something I use infrequently
 NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
