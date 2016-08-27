@@ -1,6 +1,3 @@
-" Set my leader to something reachable
-:let mapleader = " "
-
 " Set color scheme!
 "colorscheme base16-isotope
 
@@ -12,7 +9,7 @@ set number
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 
 " Allow using mouse (Don't tell Andrew or Rob)
-set mouse=a
+set mouse=""
 
 " Reload vim config
 map <C-R> :so $MYVIMRC<CR>
@@ -25,4 +22,5 @@ map <C-R> :so $MYVIMRC<CR>
 " ctrl o closes all but the current split
 nmap <C-O> :only<CR>
 
-
+" not using backupcopy breaks webpack file watching
+set backupcopy=yes

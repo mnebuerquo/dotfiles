@@ -3,6 +3,10 @@
 " Individual bundles were not being added to my runtimepath
 set runtimepath+=~/.vim/bundle/*/
 
+" Set my leader to something reachable
+" This must be done before anything that tries to map with leader
+:let mapleader = " "
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -28,7 +32,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleFetch 'https://github.com/kien/ctrlp.vim'
 NeoBundleFetch 'https://github.com/rking/ag.vim'
 NeoBundleFetch 'https://github.com/dyng/ctrlsf.vim'
-NeoBundleFetch 'https://github.com/editorconfig/editorconfig-vim'
+"NeoBundleFetch 'https://github.com/editorconfig/editorconfig-vim'
+NeoBundleFetch 'https://github.com/sgur/vim-editorconfig'
 NeoBundleFetch 'https://github.com/tpope/vim-fugitive'
 NeoBundleFetch 'https://github.com/airblade/vim-gitgutter'
 NeoBundleFetch 'https://github.com/christoomey/vim-tmux-navigator'
@@ -38,6 +43,10 @@ NeoBundleFetch 'https://github.com/sjl/gundo.vim'
 NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 NeoBundleFetch 'https://github.com/easymotion/vim-easymotion'
 NeoBundleFetch 'https://github.com/tpope/vim-surround'
+NeoBundleFetch 'https://github.com/guns/vim-clojure-static'
+"NeoBundleFetch 'https://github.com/eapache/rainbow_parentheses.vim'
+NeoBundleFetch 'https://github.com/luochen1990/rainbow'
+"NeoBundleFetch 'https://github.com/tpope/vim-fireplace'
 
 " CSV is something I use infrequently
 NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
@@ -61,13 +70,19 @@ NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
 " Debugger for multiple languages
 NeoBundleFetch 'https://github.com/joonty/vdebug'
 
-" NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
+"NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
+NeoBundleFetch 'https://github.com/altercation/vim-colors-solarized'
+NeoBundleFetch 'https://github.com/mhinz/vim-janah'
 
 call neobundle#end()
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 " Split .vimrc into multiple files, included by glob
 " This is to encapsulate functionality into more readable groups

@@ -49,6 +49,10 @@ noremap <Leader>a :Ag! -Q <C-r>=Escape(expand('<cword>'))<CR><CR>
 function! Escape(stuff)
 	return substitute(escape(a:stuff, '\/.*$^~[]'), "\n", '\\n', "g")
 endfunction 
-nnoremap <Leader>h :Ag<SPACE>
 
+" quick key for search:
+nnoremap <Leader>ff :Ag<SPACE>
+
+" http://vim.wikia.com/wiki/Word_under_cursor_for_command
+:map <leader>h "zyiw:exe "Ag ".@z.""<CR>
 

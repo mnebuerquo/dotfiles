@@ -8,5 +8,5 @@ if !exists('g:vdebug_options')
 endif
 
 " Vdebug set breakpoint
-nmap <leader>b :Breakpoint<CR>
+"nmap <leader>b :Breakpoint<CR>
 

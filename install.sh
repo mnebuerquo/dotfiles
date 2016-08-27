@@ -35,9 +35,14 @@ ln -s -f "$INSTALLDIR/vim/rc"
 cd "$INSTALLDIR"
 
 echo "Never pipe to sh!"
+if [ ! -f neobundle-install.sh ]; then
 wget -O neobundle-install.sh https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh
+DORM=1
+fi
 sh neobundle-install.sh
+if [ $DORM ]; then
 rm neobundle-install.sh
+fi
 echo "neoBundle will install other plugins next time you run vim."
 echo "Installed vim files!"
 echo
