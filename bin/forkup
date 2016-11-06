@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# https://help.github.com/articles/syncing-a-fork/
+
+# get checked out branch so we can come back to it
+# http://stackoverflow.com/a/1593487
+OLD_BRANCH=$(git symbolic-ref -q HEAD)
+OLD_BRANCH=${OLD_BRANCH##refs/heads/}
+OLD_BRANCH=${OLD_BRANCH:-HEAD}
+
+set -e
+
+echo "Fetch upstream repo..."
+git fetch upstream
+
+#TODO: iteratively update list of branches, get main branch, list all branches in upstream?
+echo "Fast forward master..."
+( git checkout master && git merge upstream/master && git push ) ||
+( git checkout upstream/master && git checkout -b master && git push -u origin master )
+
+git checkout $OLD_BRANCH
+
+echo "Fast forward develop..."
+git checkout develop
+git merge upstream/develop
+git push
+
+git checkout $OLD_BRANCH
+
