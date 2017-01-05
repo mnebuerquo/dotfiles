@@ -70,6 +70,8 @@ echo
 # install tmux.conf
 echo "Installing ~/.tmux.conf..."
 ln -s -f "$(pwd)/tmux/tmux.conf" "$HOME/.tmux.conf"
+ln -s -f "$(pwd)/tmux/tmux-linux.conf" "$HOME/.tmux-linux.conf"
+ln -s -f "$(pwd)/tmux/tmux-macosx.conf" "$HOME/.tmux-macosx.conf"
 echo "~/.tmux.conf"
 echo 
 

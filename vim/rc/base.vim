@@ -9,7 +9,8 @@ set number
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 
 " Allow using mouse (Don't tell Andrew or Rob)
-set mouse=""
+" http://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
+set mouse="a"
 
 " Reload vim config
 map <C-R> :so $MYVIMRC<CR>

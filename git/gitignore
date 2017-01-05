@@ -6,3 +6,5 @@
 .svn
 *.svn*
 
+# macs are stupid
+.DS_Store
