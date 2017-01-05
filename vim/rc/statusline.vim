@@ -2,6 +2,7 @@
 set laststatus=2
 set statusline=%n:%F " buffer number: full path to file
 set statusline+=\ %m%r " modified or read only
+set statusline+=\ %{fugitive#statusline()}
 set statusline+=%= " align right 
 set statusline+=%4l\ /%4L " row / length
 set statusline+=\ \|%3c " column
