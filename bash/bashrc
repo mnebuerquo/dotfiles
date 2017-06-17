@@ -57,10 +57,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # make this only happen with OSX, not linux
-if [ "$OSTYPE" == "darwin" ]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
+fi
+
+# so we get the right vim in osx
+# this could be an alias instead if necessary
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    PATH="/usr/local/bin:$PATH"
 fi
 
 # Make capslock work as ctrl instead
