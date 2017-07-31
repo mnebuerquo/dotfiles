@@ -78,7 +78,7 @@ NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
 NeoBundleFetch 'https://github.com/joonty/vdebug'
 
 "NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
-NeoBundleFetch 'https://github.com/altercation/vim-colors-solarized'
+"NeoBundleFetch 'https://github.com/altercation/vim-colors-solarized'
 NeoBundleFetch 'https://github.com/mhinz/vim-janah'
 
 call neobundle#end()
@@ -89,7 +89,7 @@ NeoBundleCheck
 
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 " Split .vimrc into multiple files, included by glob
 " This is to encapsulate functionality into more readable groups

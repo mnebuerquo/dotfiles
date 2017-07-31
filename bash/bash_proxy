@@ -1,0 +1,27 @@
+#!/bin/sh
+
+function makeproxypass() {
+	echo "Enter password:"
+	read -s str
+	touch ~/.proxy_pass
+	chmod 600 ~/.proxy_pass
+	echo $str | openssl base64 > ~/.proxy_pass
+}
+
+function setproxy() {
+	PROXY_USER=$(whoami)
+	PROXY_PASS=$(openssl base64 -d < ~/.proxy_pass)
+	PROXY_HOST="cdcproxy.kroger.com:3128"
+	export {http,https}_proxy="http://$PROXY_USER:$PROXY_PASS@$PROXY_HOST"
+	export no_proxy="*.local, 169.254/16, localhost, 127.0.0.1, kroger.com"
+	npm config set proxy $(echo $http_proxy)
+	npm config set https-proxy $(echo $https_proxy)
+}
+
+function unsetproxy() {
+	unset {http,https,no}_proxy
+	npm config rm proxy
+	npm config rm https-proxy
+}
+
+setproxy
