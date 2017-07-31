@@ -1,9 +1,6 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
-[user]
-	email = sherman.adelson@gmail.com
-	name = Mnebuerquo
 [color]
 	status = auto
 	ui = true

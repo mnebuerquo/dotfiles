@@ -1,9 +1,14 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+#. /etc/bashrc
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
+# mark's vim command line trick
+set -o vi
+export EDITOR=vi
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -87,3 +92,9 @@ if [ -f ~/.bash_proxy ]; then
 	. ~/.bash_proxy
 fi
 
+# nvm is something I'm not sure I really want to use
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# stupid java doesn't know where its home is
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`

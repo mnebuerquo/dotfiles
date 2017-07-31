@@ -10,7 +10,7 @@ set number
 
 " Allow using mouse (Don't tell Andrew or Rob)
 " http://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
-set mouse="a"
+set mouse=nicr
 
 " Reload vim config
 map <C-R> :so $MYVIMRC<CR>

@@ -58,6 +58,9 @@ echo
 # install .bashrc
 echo "Installing ~/.bashrc..."
 ln -s -f "$(pwd)/bash/bashrc" "$HOME/.bashrc"
+if [ -f "$(pwd)/bash/bash_proxy" ]; then
+	ln -s -f "$(pwd)/bash/bash_proxy" "$HOME/.bash_proxy"
+fi
 echo "~/.bashrc"
 echo 
 
@@ -87,5 +90,4 @@ for path in ./bin/* ; do
 	fi
 done
 echo "Installed ~/bin/"
-echo
-
+echo 

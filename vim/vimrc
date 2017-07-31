@@ -43,10 +43,13 @@ NeoBundleFetch 'https://github.com/sjl/gundo.vim'
 NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 NeoBundleFetch 'https://github.com/easymotion/vim-easymotion'
 NeoBundleFetch 'https://github.com/tpope/vim-surround'
+
+" Stuff for clojure
 NeoBundleFetch 'https://github.com/guns/vim-clojure-static'
 "NeoBundleFetch 'https://github.com/eapache/rainbow_parentheses.vim'
 NeoBundleFetch 'https://github.com/luochen1990/rainbow'
 "NeoBundleFetch 'https://github.com/tpope/vim-fireplace'
+NeoBundleFetch 'https://github.com/kovisoft/paredit'
 
 " CSV is something I use infrequently
 NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
@@ -61,7 +64,11 @@ NeoBundleFetch 'https://github.com/skammer/vim-css-color'
 
 " Javascript plugins
 NeoBundleFetch 'https://github.com/kchmck/vim-coffee-script'
-NeoBundleFetch 'https://github.com/pangloss/vim-javascript'
+"NeoBundleFetch 'https://github.com/pangloss/vim-javascript'
+"NeoBundleFetch 'https://github.com/isRuslan/vim-es6'
+NeoBundleFetch 'https://github.com/sheerun/vim-polyglot'
+"NeoBundleFetch 'https://github.com/mxw/vim-jsx'
+"let g:jsx_ext_required = 0
 
 " PHP plugins
 NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
