@@ -89,18 +89,19 @@ NeoBundleCheck
 
 syntax enable
 set background=dark
+"let g:solarized_termcolors=256
 "colorscheme solarized
 
 " Split .vimrc into multiple files, included by glob
 " This is to encapsulate functionality into more readable groups
 " http://superuser.com/questions/438232/include-all-vim-files-in-a-folder
-for rcfile in split(globpath("~/.vim/rc", "*.vim"), '\n') 
+for rcfile in split(globpath("~/.vim/rc", "*.vim"), '\n')
 	execute('source '.rcfile)
 endfor
 
 " For local configuration we need files not in git
 " This will load all vim configs in ~/.vim/localconf
 " This is the same as loading the rc directory
-for rcfile in split(globpath("~/.vim/localconf", "*.vim"), '\n') 
+for rcfile in split(globpath("~/.vim/localconf", "*.vim"), '\n')
 	execute('source '.rcfile)
 endfor

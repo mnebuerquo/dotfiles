@@ -22,7 +22,7 @@ set fo-=t
 "let &colorcolumn=join(range(81,999),",")
 "let &colorcolumn="80,".join(range(400,999),",")
 
-highlight ColorColumn ctermbg=DarkGrey guibg=DarkGrey
+highlight ColorColumn ctermbg=black guibg=black
 if exists('+colorcolumn')
 	" http://stackoverflow.com/a/3765575/5114
 	set colorcolumn=+5
