@@ -20,10 +20,8 @@ echo "Fast forward master..."
 
 git checkout $OLD_BRANCH
 
-echo "Fast forward develop..."
-git checkout develop
-git merge upstream/develop
-git push
-
-git checkout $OLD_BRANCH
-
+#echo "Fast forward develop..."
+#git checkout develop
+#git merge upstream/develop
+#git push
+#git checkout $OLD_BRANCH 
