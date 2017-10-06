@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+if [ 0 == $(git remote -v | grep -c kroger) ]; then
+	# not kroger
+	echo "Using home profile for this repo!"
+	. ~/.gitprofile-home
+else
+	# kroger
+	echo "Using Kroger profile for this repo!"
+	. ~/.gitprofile-kroger
+fi
+
+git config -l | grep user
