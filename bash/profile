@@ -17,8 +17,9 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
+# put user's dir at end so it's last in the search because security
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    PATH="/usr/local/bin:$PATH:$HOME/bin"
 fi
 
 export CLICOLOR=1
