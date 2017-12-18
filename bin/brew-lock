@@ -1,0 +1,23 @@
+#!/bin/sh
+
+USER=${1:-"root"}
+echo "Changing owner of brew directories to $USER."
+
+sudo chown -R $USER \
+	/usr/local/Homebrew \
+	/usr/local/Cellar \
+	/usr/local/var/homebrew/locks \
+	/usr/local/bin \
+	/usr/local/etc \
+	/usr/local/sbin \
+	/usr/local/var \
+	/usr/local/Frameworks \
+	/usr/local/share/locale \
+	/usr/local/share/man \
+	/usr/local/opt \
+	/usr/local/lib/python2.7/site-packages
+
+sudo chown -R $USER \
+	/usr/local/share/emacs/site-lisp \
+	/usr/local/share/info /usr/local/share/doc/ \
+	/usr/local/share/aclocal
