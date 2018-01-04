@@ -23,5 +23,3 @@ function unsetproxy() {
 	npm config rm proxy
 	npm config rm https-proxy
 }
-
-setproxy
