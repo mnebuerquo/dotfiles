@@ -99,7 +99,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # stupid java doesn't know where its home is
 if [ -f "/usr/libexec/java_home" ]; then
-	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+	export JAVA_HOME=`/usr/libexec/java_home -v 1.8 2>>/dev/null`
 fi
 
 # attach to tmux if we're in ssh login
