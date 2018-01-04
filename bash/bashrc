@@ -62,10 +62,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # make this only happen with OSX, not linux
-if [ "$OSTYPE" == "darwin" ]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
+fi
+
+# so we get the right vim in osx
+# this could be an alias instead if necessary
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    PATH="/usr/local/bin:$PATH"
 fi
 
 # Make capslock work as ctrl instead
@@ -75,9 +81,6 @@ fi
 # don't have to look at it when we start bash.
 # TODO: we should move this to a script in bin and source it from here.
 ~/bin/bashrc-capslock.sh
-
-# attach to tmux if we're in ssh login
-~/bin/tmux-ssh-only
 
 # for OSX, use color in bash
 export CLICOLOR=1
@@ -98,3 +101,8 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f "/usr/libexec/java_home" ]; then
 	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 fi
+
+# attach to tmux if we're in ssh login
+# this is pretty annoying if we're using ssh in a tmux session
+# because we've got a nested tmux in our pane.
+# ~/bin/tmux-ssh-only
