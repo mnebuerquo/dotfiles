@@ -22,6 +22,9 @@ endif
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+" for YouCompleteMe:
+let g:neobundle#install_process_timeout = 1500
+
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -43,6 +46,16 @@ NeoBundleFetch 'https://github.com/sjl/gundo.vim'
 NeoBundleFetch 'https://github.com/scrooloose/nerdcommenter'
 NeoBundleFetch 'https://github.com/easymotion/vim-easymotion'
 NeoBundleFetch 'https://github.com/tpope/vim-surround'
+NeoBundle 'Valloric/YouCompleteMe', {
+     \ 'build' : {
+     \     'mac' : './install.sh',
+     \     'unix' : './install.sh',
+     \     'windows' : './install.sh',
+     \     'cygwin' : './install.sh'
+     \    }
+     \ }
+" Add or remove arguments to install.sh as necessary.
+" Additional steps might be necessary for Windows, as always. ;)
 
 " Stuff for clojure
 NeoBundleFetch 'https://github.com/guns/vim-clojure-static'
@@ -69,6 +82,9 @@ NeoBundleFetch 'https://github.com/kchmck/vim-coffee-script'
 NeoBundleFetch 'https://github.com/sheerun/vim-polyglot'
 "NeoBundleFetch 'https://github.com/mxw/vim-jsx'
 "let g:jsx_ext_required = 0
+"
+" Python
+NeoBundleFetch 'https://github.com/vim-scripts/indentpython.vim'
 
 " PHP plugins
 NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'

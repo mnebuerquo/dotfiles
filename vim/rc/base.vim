@@ -8,8 +8,10 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 set number
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 
-" Allow using mouse (Don't tell Andrew or Rob)
+" show where the cursor is
+set cursorline
 
+" Allow using mouse (Don't tell Andrew or Rob)
 " http://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
 set mouse=nicr
 
