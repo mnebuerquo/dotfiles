@@ -59,10 +59,10 @@ NeoBundle 'Valloric/YouCompleteMe', {
 
 " Stuff for clojure
 NeoBundleFetch 'https://github.com/guns/vim-clojure-static'
-"NeoBundleFetch 'https://github.com/eapache/rainbow_parentheses.vim'
 NeoBundleFetch 'https://github.com/luochen1990/rainbow'
-"NeoBundleFetch 'https://github.com/tpope/vim-fireplace'
 NeoBundleFetch 'https://github.com/kovisoft/paredit'
+"NeoBundleFetch 'https://github.com/tpope/vim-fireplace'
+"NeoBundleFetch 'https://github.com/eapache/rainbow_parentheses.vim'
 
 " CSV is something I use infrequently
 NeoBundleFetch 'https://github.com/chrisbra/csv.vim'
@@ -96,6 +96,8 @@ NeoBundleFetch 'https://github.com/joonty/vdebug'
 "NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
 "NeoBundleFetch 'https://github.com/altercation/vim-colors-solarized'
 NeoBundleFetch 'https://github.com/mhinz/vim-janah'
+
+NeoBundleFetch 'elixir-editors/vim-elixir'
 
 call neobundle#end()
 
