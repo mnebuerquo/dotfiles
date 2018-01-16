@@ -8,6 +8,7 @@
 1. Be sure Require password [immediately] after sleep or screen saver begins is selected.
 1. Go to your applications folder.
 1. Open Automator.
+1. Click New Document in the lower left.
 1. Select Services on the screen that appears.
 1. At the top of the new Service's actions, in the Service receives drop-down, select no input from the options. Make sure that any application is selected in the second drop-down.
 1. Add the Start Screensaver action (in the Utilities group of actions) to the Service by dragging it to the right.
