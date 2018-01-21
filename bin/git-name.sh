@@ -8,6 +8,6 @@ if git remote -v | grep "spatial" ; then
 else
 	echo "home"
 	git config user.name "mnebuerquo"
-	git config user.email "sherman.adelson@gmail.com"
+	git config user.email "mnebuerquo@users.noreply.github.com"
 	git config user.username "mnebuerquo"
 fi
