@@ -9,3 +9,6 @@ au BufNewFile,BufRead *.py
     \ set autoindent
 
 let python_highlight_all = 1
+
+let g:flake8_cmd="./mn_lint"
+autocmd FileType python map <buffer> <leader>pl :call Flake8()<CR>
