@@ -87,6 +87,7 @@ NeoBundleFetch 'https://github.com/sheerun/vim-polyglot'
 " Python
 NeoBundleFetch 'https://github.com/vim-scripts/indentpython.vim'
 NeoBundleFetch 'https://github.com/nvie/vim-flake8'
+NeoBundleFetch 'https://github.com/nathanaelkane/vim-indent-guides'
 
 " PHP plugins
 NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
