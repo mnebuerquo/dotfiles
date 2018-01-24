@@ -6,3 +6,5 @@
 	ui = true
 [push]
 	default = simple
+[user]
+	useConfigOnly = true
