@@ -2,9 +2,9 @@
 
 if git remote -v | grep "spatial" ; then
 	echo "spatial"
-	git config user.name "sherman"
+	git config user.name "shermanadelson"
 	git config user.email "sherman@spatial.ai"
-	git config user.username "sherman"
+	git config user.username "shermanadelson"
 else
 	echo "home"
 	git config user.name "mnebuerquo"
