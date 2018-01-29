@@ -18,7 +18,19 @@ nmap <leader>is :%s![^ ]\zs[ \t]\+! !g<CR>
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_start_level=2
+
+" This isn't working as I'd like, so I disabled it
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=gray ctermbg=2
+
 nmap <leader>gi :IndentGuidesToggle<CR>
+
+" indent samples
+	" one
+		" two
+			" three
+				" four
 
 "https://stackoverflow.com/a/2166979/5114
 "function! ToggleIndentGuides()
@@ -31,6 +43,6 @@ nmap <leader>gi :IndentGuidesToggle<CR>
         "let pat = '\%(\_^\s*\)\@<=\%(' . join(pos, '\|') . '\)\s'
         "let b:indent_guides = matchadd('CursorLine', pat)
     "endif
-"endfunction      
+"endfunction
 "autocmd FileType python call ToggleIndentGuides()
 "nmap <leader>pi :call ToggleIndentGuides()<CR>
