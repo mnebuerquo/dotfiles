@@ -1,6 +1,6 @@
 
 " Auto wrap!
-set tw=76
+set tw=79
 set fo-=t
 " Highlight lines past the preferred line length so I know where to break
 " them
