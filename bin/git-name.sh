@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if git remote -v | grep "spatial" ; then
-	echo "spatial"
-	git config user.name "shermanadelson"
-	git config user.email "sherman@spatial.ai"
-	git config user.username "shermanadelson"
+if git remote -v | grep "kroger" ; then
+	echo "kroger"
+	git config user.name "kon7726"
+	git config user.email "sherman.adelson@kroger.com"
+	git config user.username "sherman"
 else
 	echo "home"
 	git config user.name "mnebuerquo"
