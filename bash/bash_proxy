@@ -1,5 +1,16 @@
 #!/bin/sh
 
+urlencodepipe() {
+  local LANG=C; local c; while IFS= read -r c; do
+    printf "$c" | xxd -ps -g 1 | awk '$0="%"$0' | tr -d '\n'
+  done <<EOF
+$(fold -w1)
+EOF
+  echo
+}
+
+urlencode() { printf "$*" | urlencodepipe ;}
+
 function makeproxypass() {
 	echo "Enter password:"
 	read -s str
@@ -10,7 +21,7 @@ function makeproxypass() {
 
 function setproxy() {
 	PROXY_USER=$(whoami)
-	PROXY_PASS=$(openssl base64 -d < ~/.proxy_pass)
+	PROXY_PASS=$(urlencode $(openssl base64 -d < ~/.proxy_pass))
 	PROXY_HOST="cdcproxy.kroger.com:3128"
 	export {http,https}_proxy="http://$PROXY_USER:$PROXY_PASS@$PROXY_HOST"
 	export no_proxy="*.local, 169.254/16, localhost, 127.0.0.1, kroger.com"
