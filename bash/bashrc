@@ -88,26 +88,19 @@ export CLICOLOR=1
 # https://github.com/seebi/dircolors-solarized/issues/10
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# in case we need proxy settings
-if [ -f ~/.bash_proxy ]; then
-	. ~/.bash_proxy
-fi
-
 # nvm is something I'm not sure I really want to use
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # stupid java doesn't know where its home is
 if [ -f "/usr/libexec/java_home" ]; then
 	export JAVA_HOME=`/usr/libexec/java_home -v 1.8 2>>/dev/null`
 fi
 
-# attach to tmux if we're in ssh login
-# this is pretty annoying if we're using ssh in a tmux session
-# because we've got a nested tmux in our pane.
-# ~/bin/tmux-ssh-only
-
+# in case we need proxy settings
+if [ -f ~/.bash_proxy ]; then
+	. ~/.bash_proxy
+fi
 # set proxy settings if we're somewhere where we need to use it
 detectsetproxy
-
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

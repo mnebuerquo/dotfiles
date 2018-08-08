@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Proxy configuration for running behind a corp firewall. This is intended to be 
+# sourced from your .bashrc or .profile.
+#
+# For automatic proxy detection/configuration for new terminal windows, add a
+# call to detectsetproxy in .bashrc or .profile after sourcing this file.
+
 function detectproxy() {
 	# try curl with no proxy setting and see if we can get to google
 	# if not, we need our proxy setting, else we don't
@@ -15,6 +21,12 @@ function detectproxy() {
 	fi
 }
 
+# This section is for urlencode for keeping your proxy password obfuscated in
+# your environment variable. This is so if you are doing pair programming or
+# something and you accidentally cat your environment, the other person doesn't
+# just see your password in clear text. This is not for security on a
+# multi-user machine. It's not encrypted, just urlencoded.
+# https://stackoverflow.com/a/38021063/5114
 urlencodepipe() {
   local LANG=C; local c; while IFS= read -r c; do
     printf "$c" | xxd -ps -g 1 | awk '$0="%"$0' | tr -d '\n'
@@ -26,9 +38,16 @@ EOF
 urlencode() { printf "$*" | urlencodepipe ;}
 
 function makeproxypass() {
+	# Ideally this would encrypt the password in the file, but it's not
+	# happening yet. You'd need a key or password to decrypt anyway which
+	# defeats the convenience of storing the password.
+	# If someone has access to files in your home with mode 600, your ssh keys
+	# are probably compromised anyway. This is for just obfuscating a file no
+	# one can read anyway. To reduce the risk of accidental exposure.
 	echo "Enter password:"
 	read -s str
 	touch ~/.proxy_pass
+	# Important! This must not be readable by anyone but the owner!
 	chmod 600 ~/.proxy_pass
 	echo $str | openssl base64 > ~/.proxy_pass
 }
@@ -36,15 +55,19 @@ function makeproxypass() {
 function setproxy() {
 	PROXY_USER=$(whoami)
 	PROXY_PASS=$(urlencode $(openssl base64 -d < ~/.proxy_pass))
-	PROXY_HOST="cdcproxy.kroger.com:3128"
+	PROXY_HOST=`cat ~/.proxy_host`
+	if [ -z "${PROXY_HOST}" ]; then
+		echo "Proxy host not set. Edit ~/.proxy_host to add <host>:<port> string."
+		return 1
+	fi
 	export {http,https}_proxy="http://$PROXY_USER:$PROXY_PASS@$PROXY_HOST"
-	export no_proxy="*.local, 169.254/16, localhost, 127.0.0.1, kroger.com"
+	export no_proxy="*.local, 169.254/16, localhost, 127.0.0.1"
 	export VAGRANT_HTTP_PROXY="${http_proxy}"
 	export VAGRANT_HTTPS_PROXY="${http_proxy}"
 	export VAGRANT_FTP_PROXY="${http_proxy}"
 	export VAGRANT_NO_PROXY="${no_proxy}"
-	#npm config set proxy $(echo $http_proxy)
-	#npm config set https-proxy $(echo $https_proxy)
+	export NPM_CONFIG_PROXY=$(echo $http_proxy)
+	export NPM_CONFIG_HTTPS_PROXY=$(echo $https_proxy)
 }
 
 function unsetproxy() {
@@ -53,13 +76,25 @@ function unsetproxy() {
 	unset VAGRANT_HTTPS_PROXY
 	unset VAGRANT_FTP_PROXY
 	unset VAGRANT_NO_PROXY
-	#npm config rm proxy
-	#npm config rm https-proxy
+	unset NPM_CONFIG_PROXY
+	unset NPM_CONFIG_HTTPS_PROXY
+}
+
+function proxyon() {
+	setproxy
+}
+
+function proxyoff() {
+	unsetproxy
 }
 
 function detectsetproxy() {
-	# see if we need to set proxy settings
-	# TODO: how do I tell what network I'm on?
+	# See if we need to set proxy settings, then set them if we do
+	# If we can connect to google without the proxy, then we don't need it.
+	# If we can not connect, then we need the proxy.
+	# This will set up the proxy wrongly in cases where we do not have proper
+	# connectivity, because this script can not tell the difference.
+	unsetproxy
 	detectproxy
 	if [ $? -eq 0 ]; then
 		unsetproxy
