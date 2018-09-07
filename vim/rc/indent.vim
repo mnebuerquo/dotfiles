@@ -46,3 +46,33 @@ nmap <leader>gi :IndentGuidesToggle<CR>
 "endfunction
 "autocmd FileType python call ToggleIndentGuides()
 "nmap <leader>pi :call ToggleIndentGuides()<CR>
+
+"Vim wraps lines longer than the maximum columns or screen width
+"
+"To show wrapped lines with a prefix:
+"set showbreak=@@@@@@@@
+"
+"To wrap lines on word boundary:
+"set linebreak
+"
+"To set what the word boundary characters are:
+"set breakat=\ 
+"
+"To set default breakat:
+"set breakat&vim
+"
+"To wrap lines at the same level of indent as the start of the line:
+"set breakindent
+"
+"To further indent them deeper than start of the line:
+"set breakindentopt=shift:4
+"
+"To not wrap at all:
+"set nowrap
+"
+nmap <leader><leader>lb :set nolist wrap linebreak breakat=\ ,; breakindent breakindentopt=shift:4<CR>
+nmap <leader><leader>lw :set wrap nolinebreak breakat&vim<CR>
+nmap <leader><leader>ln :set nowrap<CR>
+" Setting this as my new default because I think it does what I like
+" Soft wrap, break only on spaces and tabs
+:set nolist wrap linebreak breakat=\ ,; breakindent breakindentopt=shift:4
