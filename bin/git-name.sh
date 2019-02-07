@@ -2,9 +2,9 @@
 
 if git remote -v | grep "kroger" ; then
 	echo "kroger"
-	git config user.name "kon7726"
+	git config user.name "Sherman"
 	git config user.email "sherman.adelson@kroger.com"
-	git config user.username "sherman"
+	git config user.username "kon7726"
 else
 	echo "home"
 	git config user.name "mnebuerquo"
