@@ -1,4 +1,5 @@
 #!/bin/sh
+# https://applehelpwriter.com/2018/03/21/how-homebrew-invites-users-to-get-pwned/
 
 USER=${1:-"root"}
 echo "Changing owner of brew directories to $USER."
