@@ -101,6 +101,6 @@ fi
 # in case we need proxy settings
 if [ -f ~/.bash_proxy ]; then
 	. ~/.bash_proxy
+	# set proxy settings if we're somewhere where we need to use it
+	detectsetproxy
 fi
-# set proxy settings if we're somewhere where we need to use it
-detectsetproxy
