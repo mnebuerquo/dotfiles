@@ -24,3 +24,7 @@ fi
 
 export CLICOLOR=1
 export TERM=xterm-256color
+
+# macos catalina has switched default shell to zsh, and shows deprecation
+# warning for any other
+export BASH_SILENCE_DEPRECATION_WARNING=1
