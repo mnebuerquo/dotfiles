@@ -1,4 +1,4 @@
 #!/bin/sh
-#!/bin/sh
+# https://applehelpwriter.com/2018/03/21/how-homebrew-invites-users-to-get-pwned/
 
 ~/bin/brew-lock $(whoami)

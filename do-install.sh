@@ -58,12 +58,12 @@ echo
 # install .bashrc
 echo "Installing ~/.bashrc..."
 ln -s -f "$(pwd)/bash/bashrc" "$HOME/.bashrc"
-#if [ -f "$(pwd)/bash/bash_proxy" ]; then
-	#ln -s -f "$(pwd)/bash/bash_proxy" "$HOME/.bash_proxy"
-#fi
-
-wget -O "$HOME/.bash_proxy" https://raw.githubusercontent.com/mnebuerquo/kproxy/master/kproxy
 echo "~/.bashrc"
+
+# .bash_proxy has moved to an external resource
+echo "Installing kproxy"
+wget -O "$HOME/.bash_proxy" "https://raw.githubusercontent.com/mnebuerquo/kproxy/master/kproxy"
+echo "~/.bash_proxy"
 echo 
 
 # install .profile
