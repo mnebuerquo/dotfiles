@@ -99,8 +99,13 @@ if [ -f "/usr/libexec/java_home" ]; then
 fi
 
 # in case we need proxy settings
-if [ -f ~/.bash_proxy ]; then
+if [ -e ~/.bash_proxy ]; then
 	. ~/.bash_proxy
 	# set proxy settings if we're somewhere where we need to use it
 	detectsetproxy
+else
+	# alternate proxy settings which aren't auto-detected
+	if [ -e ~/.mr_proxy ]; then
+		. ~/.mr_proxy
+	fi
 fi
