@@ -95,7 +95,7 @@ NeoBundleFetch 'https://github.com/2072/PHP-Indenting-for-VIm'
 NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
 
 " Debugger for multiple languages
-NeoBundleFetch 'https://github.com/joonty/vdebug'
+"NeoBundleFetch 'https://github.com/joonty/vdebug'
 
 "NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
 "NeoBundleFetch 'https://github.com/altercation/vim-colors-solarized'
