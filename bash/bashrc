@@ -101,11 +101,15 @@ fi
 # in case we need proxy settings
 if [ -e ~/.bash_proxy ]; then
 	. ~/.bash_proxy
+fi
+
+# alternate proxy settings which aren't auto-detected
+if [ -e ~/.mr_proxy ]; then
+	. ~/.mr_proxy
+else
 	# set proxy settings if we're somewhere where we need to use it
 	detectsetproxy
-else
-	# alternate proxy settings which aren't auto-detected
-	if [ -e ~/.mr_proxy ]; then
-		. ~/.mr_proxy
-	fi
 fi
+
+# NVM wants to install this in my bashrc, so I guess I'll allow it.
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
