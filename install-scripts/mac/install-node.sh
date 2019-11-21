@@ -14,5 +14,7 @@ bash "${NVM_INSTALLER}" --no-use
 rm "${NVM_INSTALLER}"
 
 # https://github.com/yarnpkg/yarn/issues/3255
+# https://gist.github.com/nijicha/e5615548181676873118df79953cb709
 echo "Installing yarn for use with NVM. See https://github.com/yarnpkg/yarn/issues/3255 for more info."
-brew install yarn --without-node
+brew install yarn
+brew uninstall node --ignore-dependencies
