@@ -99,6 +99,7 @@ NeoBundleFetch 'https://github.com/2072/vim-syntax-for-PHP'
 
 "NeoBundleFetch 'https://github.com/chriskempson/base16-vim'
 "NeoBundleFetch 'https://github.com/altercation/vim-colors-solarized'
+NeoBundleFetch 'https://github.com/lifepillar/vim-solarized8'
 NeoBundleFetch 'https://github.com/mhinz/vim-janah'
 
 NeoBundleFetch 'elixir-editors/vim-elixir'
@@ -110,9 +111,9 @@ call neobundle#end()
 NeoBundleCheck
 
 syntax enable
+
 set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
+colorscheme solarized8_high
 
 " Split .vimrc into multiple files, included by glob
 " This is to encapsulate functionality into more readable groups
