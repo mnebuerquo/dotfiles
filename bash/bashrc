@@ -88,11 +88,6 @@ export CLICOLOR=1
 # https://github.com/seebi/dircolors-solarized/issues/10
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# nvm is something I'm not sure I really want to use
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # stupid java doesn't know where its home is
 if [ -f "/usr/libexec/java_home" ]; then
 	export JAVA_HOME=`/usr/libexec/java_home -v 1.8 2>>/dev/null`
