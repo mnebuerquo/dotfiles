@@ -8,3 +8,6 @@
 
 # macs are stupid
 .DS_Store
+
+# I don't even use intellij
+.idea

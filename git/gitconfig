@@ -8,3 +8,5 @@
 	default = simple
 [user]
 	useConfigOnly = true
+[pull]
+	rebase = true
