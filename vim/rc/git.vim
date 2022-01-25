@@ -1,5 +1,5 @@
 " Git Blame from Fugitive
-map <c-b> :Gblame -w<CR>
+map <c-b> :Git blame -w<CR>
 
 " Git Gutter
 " This doesn't work as well as I'd like because background colors make some
