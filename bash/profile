@@ -28,3 +28,19 @@ export TERM=xterm-256color
 # macos catalina has switched default shell to zsh, and shows deprecation
 # warning for any other
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# brew install ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS=-L/usr/local/opt/ruby/lib
+export CPPFLAGS=-I/usr/local/opt/ruby/include
+export PKG_CONFIG_PATH=/usr/local/opt/ruby/lib/pkgconfig
+# new ruby broke vim
+#########################################
+# dyld[28350]: Library not loaded: /usr/local/opt/ruby/lib/libruby.3.0.dylib
+#   Referenced from: /usr/local/Cellar/vim/8.2.3450/bin/vim
+#   Reason: tried: '/usr/local/opt/ruby/lib/libruby.3.0.dylib' (no such file), '/usr/local/lib/libruby.3.0.dylib' (no such file), '/usr/lib/libruby.3.0.dylib' (no such file), '/usr/local/Cellar/ruby/3.1.0/lib/libruby.3.0.dylib' (no such file), '/usr/local/lib/libruby.3.0.dylib' (no such file), '/usr/lib/libruby.3.0.dylib' (no such file)
+# Abort trap: 6
+#########################################
+# quick and dirty way to fix:
+# https://superuser.com/a/1214608
+# ln -s libruby.3.1.dylib libruby.3.0.dylib
