@@ -68,10 +68,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
 
-# so we get the right vim in osx
+# so we get the right vim (and other tools) in osx
+# system in /usr/bin shadow the brew-installed ones
 # this could be an alias instead if necessary
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    PATH="/usr/local/bin:$PATH"
+	PATH="/opt/homebrew/bin:$PATH"
 fi
 
 # Make capslock work as ctrl instead
