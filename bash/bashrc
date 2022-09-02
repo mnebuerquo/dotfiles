@@ -107,8 +107,11 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # set default version of JDK
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_292`
+# this is sending output to dev/null so we don't see the warning when jdk is 
+# not installed
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_292  2>/dev/null`
 
 # NVM wants to install this in my bashrc, so I guess I'll allow it.
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -116,3 +119,10 @@ if [ -f ~/.nvm/nvm.sh ]; then
 	. ~/.nvm/nvm.sh
 fi
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/sherman/gcloud/google-cloud-sdk/path.bash.inc' ]; then . '/Users/sherman/gcloud/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/sherman/gcloud/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/sherman/gcloud/google-cloud-sdk/completion.bash.inc'; fi

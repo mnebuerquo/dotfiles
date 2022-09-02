@@ -15,7 +15,7 @@ for path in ./i3/* ; do
 	ln -s -f "$(pwd)/i3/${file}" "$HOME/.i3/${file}"
 done
 echo "Installed ~/.i3/"
-echo 
+echo
 
 # install vim settings
 echo "Installing ~/.vimrc and neoBundle"
@@ -53,7 +53,12 @@ ln -s -f "$(pwd)/git/gitconfig" "$HOME/.gitconfig"
 ln -s -f "$(pwd)/git/gitignore" "$HOME/.gitignore"
 echo "~/.gitconfig"
 sh "$(pwd)/git/install.sh"
-echo 
+echo
+
+# install .bash_profile
+echo "Installing ~/.bash_profile..."
+ln -s -f "$(pwd)/bash/bash_profile" "$HOME/.bash_profile"
+echo "~/.bash_profile"
 
 # install .bashrc
 echo "Installing ~/.bashrc..."
@@ -64,13 +69,13 @@ echo "~/.bashrc"
 echo "Installing kproxy"
 wget -O "$HOME/.bash_proxy" "https://raw.githubusercontent.com/mnebuerquo/kproxy/master/kproxy"
 echo "~/.bash_proxy"
-echo 
+echo
 
 # install .profile
 echo "Installing ~/.profile..."
 ln -s -f "$(pwd)/bash/profile" "$HOME/.profile"
 echo "~/.profile"
-echo 
+echo
 
 # install tmux.conf
 echo "Installing ~/.tmux.conf..."
@@ -78,7 +83,7 @@ ln -s -f "$(pwd)/tmux/tmux.conf" "$HOME/.tmux.conf"
 ln -s -f "$(pwd)/tmux/tmux-linux.conf" "$HOME/.tmux-linux.conf"
 ln -s -f "$(pwd)/tmux/tmux-macosx.conf" "$HOME/.tmux-macosx.conf"
 echo "~/.tmux.conf"
-echo 
+echo
 
 # make symlinks to all bin scripts
 echo "Installing ~/bin..."
@@ -92,4 +97,4 @@ for path in ./bin/* ; do
 	fi
 done
 echo "Installed ~/bin/"
-echo 
+echo
