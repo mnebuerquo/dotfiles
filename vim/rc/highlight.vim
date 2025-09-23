@@ -8,7 +8,8 @@
 " contrast for readability.
 
 "highlight Comment ctermfg=darkBlue ctermbg=white
-highlight Comment ctermfg=black ctermbg=green
+"highlight Comment ctermfg=black ctermbg=green
+highlight Comment ctermfg=green 
 
 "highlight CursorLine term=NONE cterm=bold ctermbg=DarkGrey ctermfg=gray
 

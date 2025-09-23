@@ -1,7 +1,17 @@
 #!/bin/sh
 
 if git remote -v | grep "reallybigspiders" ; then
-	echo "rbs"
+	echo "reallybigspiders"
+	git config user.name "Sherman"
+	git config user.email "sherman@stellartechworks.com"
+	git config user.username "mnebuerquo"
+elif  git remote -v | grep "stellar-techworks" ; then
+	echo "stellartechworks"
+	git config user.name "Sherman"
+	git config user.email "sherman@stellartechworks.com"
+	git config user.username "mnebuerquo"
+elif  git remote -v | grep "roadid" ; then
+	echo "stellartechworks"
 	git config user.name "Sherman"
 	git config user.email "sherman@stellartechworks.com"
 	git config user.username "mnebuerquo"

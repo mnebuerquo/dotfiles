@@ -43,6 +43,9 @@ let g:ag_prg='ag
 			\ --ignore "**/*.pyc"
 			\ --ignore "**/*.min.js"
 			\ --ignore "**/*.lesscache"
+			\ --ignore "**/*.log"
+			\ --ignore "**/*.gz"
+			\ --ignore "**/*.tar"
 			\ '
 
 " Quick Keys for Ag:

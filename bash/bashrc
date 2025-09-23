@@ -3,6 +3,9 @@
 # for examples
 #. /etc/bashrc
 
+# macos, stop being annoying
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -68,6 +71,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
 
+# my bin directory should be in my path
+PATH="$PATH:$HOME/bin"
+
 # so we get the right vim (and other tools) in osx
 # system in /usr/bin shadow the brew-installed ones
 # this could be an alias instead if necessary
@@ -110,7 +116,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # set default version of JDK
-# this is sending output to dev/null so we don't see the warning when jdk is 
+# this is sending output to dev/null so we don't see the warning when jdk is
 # not installed
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_292  2>/dev/null`
 
@@ -121,9 +127,21 @@ if [ -f ~/.nvm/nvm.sh ]; then
 fi
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# ruby, for cocoapods, etc.
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/sherman/gcloud/google-cloud-sdk/path.bash.inc' ]; then . '/Users/sherman/gcloud/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/sherman/gcloud/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/sherman/gcloud/google-cloud-sdk/completion.bash.inc'; fi
+
+# pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
